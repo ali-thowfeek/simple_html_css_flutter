@@ -91,9 +91,10 @@ class Parser {
           textStyle = StyleGenUtils.addLineHeight(textStyle, value);
           break;
 
-        case "list_item":
-          text = "• " + text;
-          break;
+          //dropping partial support for li bullets
+//        case "list_item":
+//          text = "• " + text;
+//          break;
 
         case "visit_link":
           isLink = true;
@@ -208,11 +209,10 @@ class Parser {
                   " color: #4287f5;";
               break;
 
-            case "li":
-              //TODO: add support for ol-li
-              //FIXME: if there is a tag in the middle of [li] unexpected results show up
-              styles = "list_item:ul;";
-              break;
+              //dropping partial support for ul-li bullets
+//            case "li":
+//              styles = "list_item:ul;";
+//              break;
           }
 
           event.attributes.forEach((attribute) {
@@ -249,7 +249,7 @@ class Parser {
           spans.add(TextSpan(
             text: "\n",
           ));
-        } else if (event.name == 'ul') {
+        } else if (event.name == 'ul' || event.name == 'ol') {
           spans.add(TextSpan(
             text: "\n",
           ));

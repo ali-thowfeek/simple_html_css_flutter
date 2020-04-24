@@ -1,5 +1,7 @@
 # Simple Html CSS
 
+[![Pub Version](https://img.shields.io/pub/v/simple_html_css?style=flat-square)](https://pub.dev/packages/simple_html_css) [![GitHub](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](https://github.com/ali-thowfeek/simple_html_css_flutter/blob/master/LICENSE)
+
 This is a fork of [css_text_for_flutter](https://github.com/hathibelagal-dev/css_text_for_flutter)
 
 This package makes it easy for you to convert HTML and CSS text content
@@ -13,14 +15,26 @@ Here's a sample HTML content with inline CSS styles:
 
 ```html
 <body>
-    <h1 style='color: white; font-size:50px; font-style:italic; background-color: rgb(0,122,255); font-weight:100;)'> Hello word! </h1>
-    <h1 style=''>Convert your <span style='color:lightseagreen;'>HTML</span> and <span style='color:dodgerblue'>CSS</span> easily into RichText</h1>
-    <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Pellentesque in leo id dui bibendum fringilla in et arcu. In vehicula vel est sed mattis.</p>
+    <h1 style='color: white; font-size:50px; font-style:italic; 
+    background-color: rgb(0,122,255); font-weight:100;)'> Hello word! </h1>
+    <h1 style=''>Convert your <span style='color:lightseagreen;'>
+    HTML</span> and <span style='color:dodgerblue'>CSS</span> 
+    easily into RichText</h1>
+    <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Pellentesque in leo 
+    id dui bibendum fringilla in et arcu. In vehicula vel est sed mattis.</p>
     <p><a href="https://google.com">Need more? click this link</a></p>
-    <p>We all spell <span style='color:crimson; text-decoration: underline wavy;'>recieve</span> wrong.<br />Some times we delete <del>stuff</del></p>
-    <div style='font-size:17px'>We write things that are <span style='font-size:1.5em;'>Big,</span> <b>bold</b>&nbsp; or <span style='color:brown'>colorful</span></div>
-    <p style='font-family:times;'>Some different FONT with <span style='background-color:lightcyan;'>this part highlighted</span></p>
-    <div style='line-height:2; font-size:17px;'><b style='color: rgb(0,122,255); font-weight:500;'>Finally some line heights.</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in leo id dui bibendum fringilla in et arcu. In vehicula vel est sed mattis. Duis varius, sem non mattis.</div>
+    <p>We all spell <span style='color:crimson; 
+    text-decoration: underline wavy;'>recieve</span> wrong.<br />Some times we 
+    delete <del>stuff</del></p>
+    <div style='font-size:17px'>We write things that are 
+    <span style='font-size:1.5em;'>Big,</span> <b>bold</b>&nbsp; or 
+    <span style='color:brown'>colorful</span></div>
+    <p style='font-family:times;'>Some different FONT with 
+    <span style='background-color:lightcyan;'>this part highlighted</span></p>
+    <div style='line-height:2; font-size:17px;'><b style='color: rgb(0,122,255); 
+    font-weight:500;'>Finally some line heights.</b> Lorem ipsum dolor sit amet, 
+    consectetur adipiscing elit. Pellentesque in leo id dui bibendum fringilla 
+    in et arcu. In vehicula vel est sed mattis. Duis varius, sem non mattis.</div>
 </body>
 ```
 
@@ -93,7 +107,8 @@ HTML tags in your HTML content.
 String htmlContent =
    """
    <p>This has no font size css property, but global style will be applied</p>
-   <a style='color: orange;'>The inline color for this is orange, but it will get overridden by global style defined below</a>
+   <a style='color: orange;'>The inline color for this is orange, but it will 
+   get overridden by global style defined below</a>
    """;
 
 HTML.toTextSpan(
@@ -112,22 +127,27 @@ HTML.toTextSpan(
 
 Supports all tags which prints text normally like `p`, `div`, `span`, `body` etc.  
 And the following special tags which change the text appearance
-* `h1 - h5`
-* `b` `strong`
-* `i` `em`
-* `u`
-* `strike` `del` `s`
-* `a` - anchor tags with link `callback`
+* `<h1> - <h5>`
+* `<b>` `<strong>`
+* `<i>` `<em>`
+* `<u>`
+* `<strike>` `<del>` `<s>`
+* `<a>` - anchor tags with link click `callback`
 
 ## Supported CSS properties (text related)
 
-| supported Css property | supported value(s)                                                                                                           |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| font-weight            | `100 to 900`, `normal`, `medium`, `bold`                                                                                     |
-| color                  | css color name like: `red`, `orangered` etc. or `rgb(0, 0, 255)` or `rga(0, 0, 50, 0.5)` or Hex `#eee`/`#ff00ff`/`#ff005522` |
-| background-color       | same as above                                                                                                                |
-| font-style             | `italic` and `normal`                                                                                                        |
-| font-family            | any valid font family. eg: `times`                                                                                           |
-| font-size              | eg: `18px` or `1.5em`                                                                                                        |
-| text-decoration        | `underline`, `overline`, `none`, `line`, `dotted`, `dashed`, `wavy`                                                          |
-| line-height            | any valid value. eg: `1.5`                                                                                                   |
+| supported Css property | supported value(s)                                                                                                            |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| font-weight            | `100 to 900`, `normal`, `medium`, `bold`                                                                                      |
+| color                  | css color name like: `red`, `orangered` etc. or `rgb(0, 0, 255)` or `rgba(0, 0, 50, 0.5)` or Hex `#eee`/`#ff00ff`/`#ff005522` |
+| background-color       | same as above                                                                                                                 |
+| font-style             | `italic` and `normal`                                                                                                         |
+| font-family            | any valid font family. eg: `times`                                                                                            |
+| font-size              | eg: `18px` or `1.5em`                                                                                                         |
+| text-decoration        | `underline`, `overline`, `none`, `line`, `dotted`, `dashed`, `wavy`                                                           |
+| line-height            | any valid value. eg: `1.5`                                                                                                    |
+
+## Partially supported HTML tags
+
+`<ol>` `<ul>` `<li>`
+These tags will be rendered on new lines, but without the number or symbol
