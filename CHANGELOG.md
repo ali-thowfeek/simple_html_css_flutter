@@ -1,3 +1,12 @@
+## [1.0.2+1] - April 24th, 2020
+
+* Fixed changelog
+
+## [1.0.2] - April 24th, 2020
+
+* Added partial support for `<ol> <ul> <li>`
+* Updated to readme
+
 ## [1.0.1] - April 24th, 2020
 
 * Updated to latest XML dependency

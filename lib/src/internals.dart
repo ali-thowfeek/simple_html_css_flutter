@@ -91,7 +91,7 @@ class Parser {
           textStyle = StyleGenUtils.addLineHeight(textStyle, value);
           break;
 
-          //dropping partial support for li bullets
+        //dropping partial support for li bullets
 //        case "list_item":
 //          text = "• " + text;
 //          break;
@@ -209,7 +209,7 @@ class Parser {
                   " color: #4287f5;";
               break;
 
-              //dropping partial support for ul-li bullets
+            //dropping partial support for ul-li bullets
 //            case "li":
 //              styles = "list_item:ul;";
 //              break;
