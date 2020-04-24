@@ -21,7 +21,7 @@ import './internals.dart';
 import 'package:flutter/material.dart';
 
 /// This class is the only class you should be using from the
-/// css_text library. It contains all the methods you need to
+/// simple_html_css package. It contains all the methods you need to
 /// handle your HTML and CSS.
 class HTML {
   /// Returns a [TextSpan] object you can directly pass to a [RichText]
@@ -49,7 +49,8 @@ class HTML {
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
       {Function linksCallback, Map<String, TextStyle> overrideStyle}) {
     //to fix a known issue with &nbsp; when appears after a ending tag
-    htmlContent = htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
+    htmlContent =
+        htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
 
     Parser p = Parser(context, HtmlUnescape().convert(htmlContent),
         linksCallback: linksCallback,

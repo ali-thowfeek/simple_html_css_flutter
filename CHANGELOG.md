@@ -1,3 +1,7 @@
+## [1.0.1] - April 24th, 2020
+
+* Updated to latest XML dependency
+
 ## [1.0.0] - April 24th, 2020
 
 * Initial release of the forked project.

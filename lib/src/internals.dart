@@ -31,8 +31,8 @@ class _Tag {
   _Tag(this.name, this.styles, this.overrideStyle);
 }
 
-/// This class is at the core of the css_text library. It has most of the
-/// methods required to convert HTML content into Flutter widgets
+/// This class is at the core of the simple_html_css package . It has most of
+/// the methods required to convert HTML content into Flutter widgets
 class Parser {
   List<_Tag> _stack = [];
   var _events;
