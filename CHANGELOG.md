@@ -1,3 +1,7 @@
+## [1.0.2+2] - April 26th, 2020
+
+* Downgraded xml dependency to prevent version solving failure.
+
 ## [1.0.2+1] - April 24th, 2020
 
 * Fixed changelog
