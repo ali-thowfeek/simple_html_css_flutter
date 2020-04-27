@@ -1,6 +1,6 @@
 /*
- * Copyright 2020 Ali Ahamed Thowfeek
- * Copyright 2019 Ashraff Hathibelagal
+ * Modified work: Copyright 2020 Ali Ahamed Thowfeek
+ * Original work: Copyright 2019 Ashraff Hathibelagal
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

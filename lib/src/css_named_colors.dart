@@ -1,5 +1,5 @@
-// Copyright 2020 Ali Ahamed Thowfeek
-// Copyright 2017 Google, Inc. All rights reserved.
+// Modified work: Copyright 2020 Ali Ahamed Thowfeek
+// Original work: Copyright 2017 Google, Inc. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are

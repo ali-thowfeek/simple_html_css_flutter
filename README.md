@@ -41,7 +41,7 @@ Here's a sample HTML content with inline CSS styles:
 This package can automatically convert all the HTML content above into
 `TextSpan` objects or a `RichText` widget. Here's what the render will look like:
 
-![](sample.png)
+![Sample](sample.png)
 
 ## Getting Started
 
@@ -151,3 +151,25 @@ And the following special tags which change the text appearance
 
 `<ol>` `<ul>` `<li>`
 These tags will be rendered on new lines, but without the number or symbol
+
+## Workaround for text not rendering properly
+
+![Render issue](render_problem.png)
+
+If you experienced any rendering issue like this,
+It is becuase you need to have the build `context` of a Material parent
+Widget such as a `Scaffold` or `Material`.
+
+To get the context directly a quick workaround is adding a `Builder`
+
+```dart
+Scaffold(
+  body: Builder(
+    builder: (context) {
+        return RichText(
+          text: HTML.toTextSpan(context, htmlContent),
+      );
+    },
+  ),
+)
+```

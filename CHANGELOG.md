@@ -1,3 +1,7 @@
+## [1.0.2+3] - April 27th, 2020
+
+* Updated README explaining a render issue
+
 ## [1.0.2+2] - April 26th, 2020
 
 * Downgraded xml dependency to prevent version solving failure.
