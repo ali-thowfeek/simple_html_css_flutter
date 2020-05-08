@@ -1,3 +1,9 @@
+## [1.0.2+4] - May 8th, 2020
+
+* Updated deprecated terms
+* Updated dependency
+* Added some TODOs in README
+
 ## [1.0.2+3] - April 27th, 2020
 
 * Updated README explaining a render issue

@@ -148,22 +148,22 @@ class Parser {
 
           switch (tagName) {
             case "h1":
-              double h1 = Theme.of(_context).textTheme.headline.fontSize;
+              double h1 = Theme.of(_context).textTheme.headline5.fontSize;
               styles = "font-size: ${h1}px;";
               break;
 
             case "h2":
-              double h2 = Theme.of(_context).textTheme.title.fontSize;
+              double h2 = Theme.of(_context).textTheme.headline6.fontSize;
               styles = "font-size: ${h2}px; font-weight: medium;";
               break;
 
             case "h3":
-              double h3 = Theme.of(_context).textTheme.subhead.fontSize;
+              double h3 = Theme.of(_context).textTheme.subtitle1.fontSize;
               styles = "font-size: ${h3}px;";
               break;
 
             case "h4":
-              double h4 = Theme.of(_context).textTheme.body2.fontSize;
+              double h4 = Theme.of(_context).textTheme.bodyText1.fontSize;
               styles = "font-size: ${h4}px; font-weight: medium;";
               break;
 
