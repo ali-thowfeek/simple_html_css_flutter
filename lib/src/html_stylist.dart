@@ -30,7 +30,17 @@ class HTML {
   /// click events on anchor tags. The function will receive the actual link
   /// as its argument.
   ///
-  /// To overrides and/or apply custom styles to all html tags
+  /// To apply a default text style which affects all of the content
+  /// (unless they are overridden) pass in [defaultTextStyle]
+  /// ```dart
+  /// HTML.toTextSpan(
+  ///   context,
+  ///   htmlContent,
+  ///   defaultTextStyle: TextStyle(color: Colors.grey[700]),
+  /// );
+  /// ```
+  ///
+  /// To overrides and/or apply custom styles to html tags
   /// pass in [overrideStyle] which is a [Map] of [String],[TextStyle]
   /// where [String] is the html tag, and [TextStyle] is the style applied
   /// ```dart
@@ -47,14 +57,17 @@ class HTML {
   /// ```
 
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
-      {Function linksCallback, Map<String, TextStyle> overrideStyle}) {
+      {Function linksCallback,
+      Map<String, TextStyle> overrideStyle,
+      TextStyle defaultTextStyle}) {
     //to fix a known issue with &nbsp; when appears after a ending tag
     htmlContent =
         htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
 
     Parser p = Parser(context, HtmlUnescape().convert(htmlContent),
         linksCallback: linksCallback,
-        overrideStyleMap: overrideStyle ?? Map<String, TextStyle>());
+        overrideStyleMap: overrideStyle ?? Map<String, TextStyle>(),
+        defaultTextStyle: defaultTextStyle);
     return TextSpan(text: "", children: p.parse());
   }
 
@@ -64,7 +77,17 @@ class HTML {
   /// click events on anchor tags. The function will receive the actual link
   /// as its argument.
   ///
-  /// To overrides and/or apply custom styles to all html tags
+  /// To apply a default text style which affects all of the content
+  /// (unless they are overridden) pass in [defaultTextStyle]
+  /// ```dart
+  /// HTML.toRichText(
+  ///   context,
+  ///   htmlContent,
+  ///   defaultTextStyle: TextStyle(color: Colors.grey[700]),
+  /// );
+  /// ```
+  ///
+  /// To overrides and/or apply custom styles to html tags
   /// pass in [overrideStyle] which is a [Map] of [String],[TextStyle]
   /// where [String] is the html tag, and [TextStyle] is the style applied
   /// ```dart
@@ -81,9 +104,13 @@ class HTML {
   /// ```
 
   static RichText toRichText(BuildContext context, String htmlContent,
-      {Function linksCallback, Map<String, TextStyle> overrideStyle}) {
+      {Function linksCallback,
+      Map<String, TextStyle> overrideStyle,
+      TextStyle defaultTextStyle}) {
     return RichText(
         text: toTextSpan(context, htmlContent,
-            linksCallback: linksCallback, overrideStyle: overrideStyle));
+            linksCallback: linksCallback,
+            overrideStyle: overrideStyle,
+            defaultTextStyle: defaultTextStyle));
   }
 }

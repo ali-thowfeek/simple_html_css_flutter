@@ -30,6 +30,8 @@ class Home extends StatelessWidget {
       linksCallback: (link) {
         print("You clicked on $link");
       },
+      // as name suggests, optionally set the default text style
+      defaultTextStyle: TextStyle(color: Colors.grey[700]),
       overrideStyle: {
         "p": TextStyle(fontSize: 17.3),
         "a": TextStyle(wordSpacing: 2),

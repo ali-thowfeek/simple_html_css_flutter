@@ -1,3 +1,9 @@
+# [2.0.0] - May 10th, 2020
+
+* **Breaking change** Updated deprecated terms in Flutter v 1.17.0 (Only use this version if you are using flutter v1.17.0 or greater)
+* **Breaking change** Updated dependency
+* Added support for `defaultTextStyle`
+
 ## [1.0.2+5] - May 10th, 2020
 
 * Reverted to restore backwards compatibility in minor version update
