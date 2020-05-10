@@ -1,3 +1,7 @@
+## [1.0.2+5] - May 10th, 2020
+
+* Reverted to restore backwards compatibility in minor version update
+
 ## [1.0.2+4] - May 8th, 2020
 
 * Updated deprecated terms
