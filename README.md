@@ -98,9 +98,25 @@ var myRichText = HTML.toRichText(context, htmlContent, linksCallback: (link) {
 });
 ```
 
+## Apply a default style
+
+You can apply a global text sytle. This acts as the base text style of all content.
+
+```dart
+HTML.toTextSpan(
+      context,
+      htmlContent,
+      defaultTextStyle: TextStyle(
+        color: Colors.grey[700],
+        fontSize: 12,
+        // etc etc
+      ),
+    );
+```
+
 ## Overriding styles
 
-You can override the inline styles and apply global styles for all the  
+You can override the inline styles and apply global styles for each of the
 HTML tags in your HTML content.
 
 ```dart
@@ -127,6 +143,7 @@ HTML.toTextSpan(
 
 Supports all tags which prints text normally like `p`, `div`, `span`, `body` etc.  
 And the following special tags which change the text appearance
+
 * `<h1> - <h5>`
 * `<b>` `<strong>`
 * `<i>` `<em>`
