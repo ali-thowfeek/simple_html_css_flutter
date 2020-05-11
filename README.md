@@ -144,8 +144,9 @@ HTML.toTextSpan(
 Supports all tags which prints text normally like `p`, `div`, `span`, `body` etc.  
 And the following special tags which change the text appearance
 
-* `<h1> - <h5>`
+* `<h1> - <h6>`
 * `<b>` `<strong>`
+* `<br>` `<br />`
 * `<i>` `<em>`
 * `<u>`
 * `<strike>` `<del>` `<s>`

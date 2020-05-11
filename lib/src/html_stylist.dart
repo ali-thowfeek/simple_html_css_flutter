@@ -60,9 +60,13 @@ class HTML {
       {Function linksCallback,
       Map<String, TextStyle> overrideStyle,
       TextStyle defaultTextStyle}) {
-    //to fix a known issue with &nbsp; when appears after a ending tag
+    //to fix a known issue with &nbsp; when appearing after an ending tag
     htmlContent =
         htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
+
+    //to fix a known issue with non self closing <br> tags
+    htmlContent =
+        htmlContent.replaceAll("<br>", "<br />");
 
     Parser p = Parser(context, HtmlUnescape().convert(htmlContent),
         linksCallback: linksCallback,

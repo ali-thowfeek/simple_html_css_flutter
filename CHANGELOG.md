@@ -1,4 +1,9 @@
-# [2.0.0+1] - May 10th, 2020
+# [2.0.0+2] - May 11th, 2020
+
+* Fixed an issue with non self closing `<br>` tag
+* Improved `<h1>-<h6>` sizing
+
+## [2.0.0+1] - May 10th, 2020
 
 * updated README
 
