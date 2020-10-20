@@ -95,9 +95,9 @@ class Parser {
           break;
 
         //dropping partial support for li bullets
-//        case "list_item":
-//          text = "• " + text;
-//          break;
+        // case "list_item":
+        // text = "• " + text;
+        // break;
 
         case "visit_link":
           isLink = true;
@@ -250,10 +250,30 @@ class Parser {
                   " color: #4287f5;";
               break;
 
-            //dropping partial support for ul-li bullets
+//dropping partial support for ul-li bullets
 //            case "li":
 //              styles = "list_item:ul;";
 //              break;
+//              RichText(
+//                text: TextSpan(
+//                  text:"",
+//                  style: TextStyle(color: Colors.black),
+//                  children: <InlineSpan>[
+//                    WidgetSpan(
+//                        alignment: PlaceholderAlignment.baseline,
+//                        baseline: TextBaseline.alphabetic,
+//                        child: Row(
+//                          crossAxisAlignment: CrossAxisAlignment.start,
+//                          children: <Widget>[
+//                            Text( '• '),
+//                            SizedBox(width: 20,),
+//                            Expanded(child: Text('Example text',)),
+//                          ],
+//                        )
+//                    ),
+//                  ],
+//                ),
+//              )
           }
 
           event.attributes.forEach((attribute) {
@@ -274,6 +294,7 @@ class Parser {
       }
 
       //TODO: see if there is a better way to add space after these tags
+      //maybe use widget spans
       if (event is xmle.XmlEndElementEvent) {
         if (event.name == 'p' ||
             event.name == 'h1' ||

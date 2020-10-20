@@ -65,8 +65,7 @@ class HTML {
         htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
 
     //to fix a known issue with non self closing <br> tags
-    htmlContent =
-        htmlContent.replaceAll("<br>", "<br />");
+    htmlContent = htmlContent.replaceAll("<br>", "<br />");
 
     Parser p = Parser(context, HtmlUnescape().convert(htmlContent),
         linksCallback: linksCallback,
