@@ -1,4 +1,8 @@
-# [2.0.0+3] - Oct 20th, 2020
+# [2.0.0+4] - Jan 27th, 2021
+
+* Fixed empty string error
+
+## [2.0.0+3] - Oct 20th, 2020
 
 * Updated dependencies
 

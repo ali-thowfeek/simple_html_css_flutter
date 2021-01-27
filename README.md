@@ -4,7 +4,7 @@
 
 This is a fork of [css_text_for_flutter](https://github.com/hathibelagal-dev/css_text_for_flutter)
 
-This package makes it easy for you to convert HTML and CSS text content
+This package makes it easy for you to convert HTML with inline CSS content
 into `RichText` widgets. It supports most CSS properties that are
 relevant to **text** content, except for a few. Also gives the ability to
 override the styles of the content passed in.
