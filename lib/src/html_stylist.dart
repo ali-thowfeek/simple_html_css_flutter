@@ -57,9 +57,9 @@ class HTML {
   /// ```
 
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
-      {Function linksCallback,
-      Map<String, TextStyle> overrideStyle,
-      TextStyle defaultTextStyle}) {
+      {Function? linksCallback,
+      Map<String, TextStyle>? overrideStyle,
+      TextStyle? defaultTextStyle}) {
     //Validating empty content
     if (htmlContent.isEmpty) {
       return TextSpan();
@@ -112,9 +112,9 @@ class HTML {
   /// ```
 
   static RichText toRichText(BuildContext context, String htmlContent,
-      {Function linksCallback,
-      Map<String, TextStyle> overrideStyle,
-      TextStyle defaultTextStyle}) {
+      {Function? linksCallback,
+      Map<String, TextStyle>? overrideStyle,
+      TextStyle? defaultTextStyle}) {
     return RichText(
         text: toTextSpan(context, htmlContent,
             linksCallback: linksCallback,

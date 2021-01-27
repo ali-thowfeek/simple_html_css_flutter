@@ -117,7 +117,7 @@ class StyleGenUtils {
       }
     } catch (e) {
       print(e);
-      return Colors.grey[500];
+      return Colors.grey;
     }
   }
 

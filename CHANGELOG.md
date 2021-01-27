@@ -1,4 +1,8 @@
-# [2.0.0+4] - Jan 27th, 2021
+## [3.0.0-nullsafety.0] - Jan 27, 2021
+
+* Migrate to null safety
+
+## [2.0.0+4] - Jan 27th, 2021
 
 * Fixed empty string error
 
