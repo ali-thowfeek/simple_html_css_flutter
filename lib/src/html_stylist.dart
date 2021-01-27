@@ -57,9 +57,9 @@ class HTML {
   /// ```
 
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
-      {Function linksCallback,
-      Map<String, TextStyle> overrideStyle,
-      TextStyle defaultTextStyle}) {
+      {Function? linksCallback,
+      Map<String, TextStyle>? overrideStyle,
+      TextStyle? defaultTextStyle}) {
     //to fix a known issue with &nbsp; when appearing after an ending tag
     htmlContent =
         htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
@@ -107,9 +107,9 @@ class HTML {
   /// ```
 
   static RichText toRichText(BuildContext context, String htmlContent,
-      {Function linksCallback,
-      Map<String, TextStyle> overrideStyle,
-      TextStyle defaultTextStyle}) {
+      {Function? linksCallback,
+      Map<String, TextStyle>? overrideStyle,
+      TextStyle? defaultTextStyle}) {
     return RichText(
         text: toTextSpan(context, htmlContent,
             linksCallback: linksCallback,
