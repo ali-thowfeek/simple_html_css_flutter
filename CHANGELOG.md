@@ -1,4 +1,4 @@
-## [3.0.0-nullsafety.0] - January 28, 2020
+## [3.0.0-nullsafety.0] - Jan 27, 2021
 
 * Migrate to null safety
 
