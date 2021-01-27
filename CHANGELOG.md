@@ -1,3 +1,7 @@
+# [3.0.0-nullsafety.0] - January 28, 2020
+
+* Migrate to null safety
+
 # [2.0.0+3] - Oct 20th, 2020
 
 * Updated dependencies
