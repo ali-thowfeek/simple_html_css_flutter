@@ -60,11 +60,6 @@ class HTML {
       {Function? linksCallback,
       Map<String, TextStyle>? overrideStyle,
       TextStyle? defaultTextStyle}) {
-    //Validating empty content
-    if (htmlContent.isEmpty) {
-      return TextSpan();
-    }
-
     //to fix a known issue with &nbsp; when appearing after an ending tag
     htmlContent =
         htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
@@ -76,7 +71,16 @@ class HTML {
         linksCallback: linksCallback,
         overrideStyleMap: overrideStyle ?? Map<String, TextStyle>(),
         defaultTextStyle: defaultTextStyle);
-    return TextSpan(text: "", children: p.parse());
+
+    var list = <TextSpan>[];
+    try {
+      list = p.parse();
+    } catch (e, s) {
+      print('simple_html_css Exception: $e');
+      print('simple_html_css Stack Trace: $s');
+    }
+
+    return TextSpan(text: "", children: list);
   }
 
   /// Returns a [RichText] widget you can directly add to your widget tree.

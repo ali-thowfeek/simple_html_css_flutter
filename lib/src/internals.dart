@@ -314,10 +314,13 @@ class Parser {
             text: "\n",
           ));
         }
-        var top = _stack.removeLast();
-        if (top.name != event.name) {
-          print("Malformed HTML");
-          return;
+
+        if (_stack.isNotEmpty) {
+          var top = _stack.removeLast();
+          if (top.name != event.name) {
+            print("Malformed HTML");
+            return;
+          }
         }
       }
 
@@ -330,7 +333,9 @@ class Parser {
     });
 
     //removing last textSpan to avoid extra space at the bottom
-    spans.removeLast();
+    if (spans.isNotEmpty) {
+      spans.removeLast();
+    }
     return spans;
   }
 }

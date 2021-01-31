@@ -1,3 +1,6 @@
+## [3.0.0-nullsafety.1] - Feb 1, 2021
+* Improved error handling
+
 ## [3.0.0-nullsafety.0] - Jan 27, 2021
 
 * Migrate to null safety
