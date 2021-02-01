@@ -1,3 +1,6 @@
+## [3.0.0-nullsafety.2] - Feb 1, 2021
+* Fixed an issue with text directly within body tag not rendering
+
 ## [3.0.0-nullsafety.1] - Feb 1, 2021
 * Improved error handling
 
