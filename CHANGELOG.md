@@ -1,4 +1,9 @@
-# [2.0.0+4] - Jan 27th, 2021
+# [2.0.1] - Feb 1st, 2021
+
+* Fixed an issue with text within body tag not rendering
+* Improved error handling
+
+## [2.0.0+4] - Jan 27th, 2021
 
 * Fixed empty string error
 

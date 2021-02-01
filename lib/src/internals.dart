@@ -36,21 +36,20 @@ class _Tag {
 class Parser {
   List<_Tag> _stack = [];
   var _events;
-  BuildContext _context;
+  final BuildContext context;
   Function _linksCallback;
   final Map<String, TextStyle> overrideStyleMap;
   final TextStyle defaultTextStyle;
 
-  Parser(BuildContext context, String data,
+  Parser(this.context, String data,
       {this.defaultTextStyle, Function linksCallback, this.overrideStyleMap}) {
     _events = xmle.parseEvents(data);
-    _context = context;
     if (linksCallback != null) _linksCallback = linksCallback;
   }
 
   TextSpan _getTextSpan(String text, String style, TextStyle overrideStyle) {
     var rules = style.split(";").where((item) => item.trim().isNotEmpty);
-    TextStyle textStyle = DefaultTextStyle.of(_context).style;
+    TextStyle textStyle = DefaultTextStyle.of(context).style;
     textStyle = textStyle.apply(color: Color(0xff000000));
     textStyle = textStyle.merge(defaultTextStyle);
 
@@ -139,13 +138,13 @@ class Parser {
 
   /// Converts HTML content to a list of [TextSpan] objects
   List<TextSpan> parse() {
-    List spans = <TextSpan>[];
+    List<TextSpan> spans = <TextSpan>[];
     _events.forEach((event) {
       if (event is xmle.XmlStartElementEvent) {
         if (!event.isSelfClosing) {
           var styles = "";
           var tagName = event.name.toLowerCase();
-          var overrideStyles;
+          TextStyle overrideStyles;
           double defaultFontSize = defaultTextStyle?.fontSize;
 
           if (overrideStyleMap.containsKey(tagName))
@@ -155,7 +154,7 @@ class Parser {
             case "h1":
               double h1;
               if (defaultFontSize == null) {
-                h1 = Theme.of(_context).textTheme.headline5.fontSize;
+                h1 = Theme.of(context).textTheme.headline5.fontSize;
               } else {
                 h1 = defaultFontSize * 2;
               }
@@ -165,7 +164,7 @@ class Parser {
             case "h2":
               double h2;
               if (defaultFontSize == null) {
-                h2 = Theme.of(_context).textTheme.headline6.fontSize;
+                h2 = Theme.of(context).textTheme.headline6.fontSize;
               } else {
                 h2 = defaultFontSize * 1.5;
               }
@@ -175,7 +174,7 @@ class Parser {
             case "h3":
               double h3;
               if (defaultFontSize == null) {
-                h3 = Theme.of(_context).textTheme.subtitle1.fontSize;
+                h3 = Theme.of(context).textTheme.subtitle1.fontSize;
               } else {
                 h3 = defaultFontSize * 1.17;
               }
@@ -185,7 +184,7 @@ class Parser {
             case "h4":
               double h4;
               if (defaultFontSize == null) {
-                h4 = Theme.of(_context).textTheme.bodyText1.fontSize;
+                h4 = Theme.of(context).textTheme.bodyText1.fontSize;
               } else {
                 h4 = defaultFontSize;
               }
@@ -195,7 +194,7 @@ class Parser {
             case "h5":
               double h5;
               if (defaultFontSize == null) {
-                h5 = Theme.of(_context).textTheme.bodyText1.fontSize;
+                h5 = Theme.of(context).textTheme.bodyText1.fontSize;
               } else {
                 h5 = defaultFontSize * .83;
               }
@@ -205,7 +204,7 @@ class Parser {
             case "h6":
               double h6;
               if (defaultFontSize == null) {
-                h6 = Theme.of(_context).textTheme.bodyText2.fontSize;
+                h6 = Theme.of(context).textTheme.bodyText2.fontSize;
               } else {
                 h6 = defaultFontSize * .67;
               }
@@ -303,7 +302,8 @@ class Parser {
             event.name == 'h4' ||
             event.name == 'h5' ||
             event.name == 'h6' ||
-            event.name == 'div') {
+            event.name == 'div' ||
+            event.name == 'body') {
           spans.add(TextSpan(
             text: "\n\n",
           ));
@@ -316,10 +316,14 @@ class Parser {
             text: "\n",
           ));
         }
-        var top = _stack.removeLast();
-        if (top.name != event.name) {
-          print("Malformed HTML");
-          return;
+        if (_stack.isNotEmpty) {
+          var top = _stack.removeLast();
+          if (top.name != event.name) {
+            print("Malformed HTML");
+            return;
+          }
+        } else {
+          print("Malformed HTML. Starting TAG missing");
         }
       }
 
@@ -332,7 +336,11 @@ class Parser {
     });
 
     //removing last textSpan to avoid extra space at the bottom
-    spans.removeLast();
+    if (spans.isNotEmpty) {
+      spans.removeLast();
+    } else {
+      print("Empty HTML content");
+    }
     return spans;
   }
 }
