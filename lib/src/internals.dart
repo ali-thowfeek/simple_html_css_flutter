@@ -301,8 +301,7 @@ class Parser {
             event.name == 'h4' ||
             event.name == 'h5' ||
             event.name == 'h6' ||
-            event.name == 'div' ||
-            event.name == 'body') {
+            event.name == 'div') {
           spans.add(TextSpan(
             text: "\n\n",
           ));
@@ -323,7 +322,7 @@ class Parser {
             return;
           }
         } else {
-          print("Malformed HTML. No starting TAG");
+          print("Malformed HTML. Starting TAG missing");
         }
       }
 
@@ -337,7 +336,7 @@ class Parser {
 
     //removing last textSpan to avoid extra space at the bottom
     if (spans.isNotEmpty) {
-      spans.removeLast();
+      if (spans.last.text == '\n\n') spans.removeLast();
     } else {
       print("Empty HTML content");
     }

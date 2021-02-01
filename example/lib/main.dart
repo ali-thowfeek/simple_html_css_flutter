@@ -45,6 +45,7 @@ class Home extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text("Demo")),
         body: Container(
+          color: Colors.white,
           padding: EdgeInsets.all(16.0),
           child: RichText(text: textSpan),
         ),
