@@ -336,7 +336,10 @@ class Parser {
 
     //removing last textSpan to avoid extra space at the bottom
     if (spans.isNotEmpty) {
-      if (spans.last.text == '\n\n') spans.removeLast();
+      for (int i = 0; i < 3; i++) {
+        if (spans.last.text == '\n\n' || spans.last.text == "\n")
+          spans.removeLast();
+      }
     } else {
       print("Empty HTML content");
     }
