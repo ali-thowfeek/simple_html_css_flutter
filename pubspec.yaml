@@ -9,11 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  xml: ^5.0.0-nullsafety.1
   html_unescape: ^2.0.0-nullsafety.0
+  xml: ^5.0.0-nullsafety.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  lint: ^1.5.1
 
 flutter:

@@ -1,14 +1,12 @@
 import 'package:simple_html_css/simple_html_css.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(Home());
-}
+void main() => runApp(Home());
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String htmlContent = """
+    const String htmlContent = """
 <body>
 
 <h1 style='color: white; font-size:50px; font-style:italic; background-color: rgb(0,122,255); font-weight:100;)'> Hello word! </h1>
@@ -24,17 +22,17 @@ class Home extends StatelessWidget {
 """;
 
     // or use HTML.toRichText()
-    var textSpan = HTML.toTextSpan(
+    final TextSpan textSpan = HTML.toTextSpan(
       context,
       htmlContent,
-      linksCallback: (link) {
-        print("You clicked on $link");
+      linksCallback: (dynamic link) {
+        debugPrint('You clicked on ${link.toString()}');
       },
       // as name suggests, optionally set the default text style
       defaultTextStyle: TextStyle(color: Colors.grey[700]),
-      overrideStyle: {
-        "p": TextStyle(fontSize: 17.3),
-        "a": TextStyle(wordSpacing: 2),
+      overrideStyle: <String, TextStyle>{
+        'p': const TextStyle(fontSize: 17.3),
+        'a': const TextStyle(wordSpacing: 2),
         // specify any tag not just the supported ones,
         // and apply TextStyles to them and/override them
       },
@@ -43,7 +41,7 @@ class Home extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text("Demo")),
+        appBar: AppBar(title: Text('Demo')),
         body: Container(
           color: Colors.white,
           padding: EdgeInsets.all(16.0),

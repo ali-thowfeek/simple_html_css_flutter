@@ -1,5 +1,6 @@
 library simple_html_css;
 
+export 'src/html_stylist.dart';
 /*
  * Modified work: Copyright 2020 Ali Ahamed Thowfeek
  * Original work: Copyright 2019 Ashraff Hathibelagal
@@ -19,4 +20,3 @@ library simple_html_css;
 
 export 'src/internals.dart';
 export 'src/utils.dart';
-export 'src/html_stylist.dart';

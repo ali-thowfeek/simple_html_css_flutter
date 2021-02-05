@@ -33,452 +33,452 @@ class CssNamedColors {
   /// Returns the corresponding [Color] for the passed in CSS color [name]
   Color getColor(String name) {
     switch (name.toLowerCase()) {
-      case "aliceblue":
-        return Color(0xFFF0F8FF);
+      case 'aliceblue':
+        return const Color(0xFFF0F8FF);
 
-      case "antiquewhite":
-        return Color(0xFFFAEBD7);
+      case 'antiquewhite':
+        return const Color(0xFFFAEBD7);
 
-      case "aqua":
-        return Color(0xFF00FFFF);
+      case 'aqua':
+        return const Color(0xFF00FFFF);
 
-      case "aquamarine":
-        return Color(0xFF7FFFD4);
+      case 'aquamarine':
+        return const Color(0xFF7FFFD4);
 
-      case "azure":
-        return Color(0xFFF0FFFF);
+      case 'azure':
+        return const Color(0xFFF0FFFF);
 
-      case "beige":
-        return Color(0xFFF5F5DC);
+      case 'beige':
+        return const Color(0xFFF5F5DC);
 
-      case "bisque":
-        return Color(0xFFFFE4C4);
+      case 'bisque':
+        return const Color(0xFFFFE4C4);
 
-      case "black":
-        return Color(0xFF000000);
+      case 'black':
+        return const Color(0xFF000000);
 
-      case "blanchedalmond":
-        return Color(0xFFFFEBCD);
+      case 'blanchedalmond':
+        return const Color(0xFFFFEBCD);
 
-      case "blue":
-        return Color(0xFF0000FF);
+      case 'blue':
+        return const Color(0xFF0000FF);
 
-      case "blueviolet":
-        return Color(0xFF8A2BE2);
+      case 'blueviolet':
+        return const Color(0xFF8A2BE2);
 
-      case "brown":
-        return Color(0xFFA52A2A);
+      case 'brown':
+        return const Color(0xFFA52A2A);
 
-      case "burlywood":
-        return Color(0xFFDEB887);
+      case 'burlywood':
+        return const Color(0xFFDEB887);
 
-      case "cadetblue":
-        return Color(0xFF5F9EA0);
+      case 'cadetblue':
+        return const Color(0xFF5F9EA0);
 
-      case "chartreuse":
-        return Color(0xFF7FFF00);
+      case 'chartreuse':
+        return const Color(0xFF7FFF00);
 
-      case "chocolate":
-        return Color(0xFFD2691E);
+      case 'chocolate':
+        return const Color(0xFFD2691E);
 
-      case "coral":
-        return Color(0xFFFF7F50);
+      case 'coral':
+        return const Color(0xFFFF7F50);
 
-      case "cornflowerblue":
-        return Color(0xFF6495ED);
+      case 'cornflowerblue':
+        return const Color(0xFF6495ED);
 
-      case "cornsilk":
-        return Color(0xFFFFF8DC);
+      case 'cornsilk':
+        return const Color(0xFFFFF8DC);
 
-      case "crimson":
-        return Color(0xFFDC143C);
+      case 'crimson':
+        return const Color(0xFFDC143C);
 
-      case "cyan":
-        return Color(0xFF00FFFF);
+      case 'cyan':
+        return const Color(0xFF00FFFF);
 
-      case "darkblue":
-        return Color(0xFF00008B);
+      case 'darkblue':
+        return const Color(0xFF00008B);
 
-      case "darkcyan":
-        return Color(0xFF008B8B);
+      case 'darkcyan':
+        return const Color(0xFF008B8B);
 
-      case "darkgoldenrod":
-        return Color(0xFFB8860B);
+      case 'darkgoldenrod':
+        return const Color(0xFFB8860B);
 
-      case "darkgray":
-        return Color(0xFFA9A9A9);
+      case 'darkgray':
+        return const Color(0xFFA9A9A9);
 
-      case "darkgreen":
-        return Color(0xFF006400);
+      case 'darkgreen':
+        return const Color(0xFF006400);
 
-      case "darkgrey":
-        return Color(0xFFA9A9A9);
+      case 'darkgrey':
+        return const Color(0xFFA9A9A9);
 
-      case "darkkhaki":
-        return Color(0xFFBDB76B);
+      case 'darkkhaki':
+        return const Color(0xFFBDB76B);
 
-      case "darkmagenta":
-        return Color(0xFF8B008B);
+      case 'darkmagenta':
+        return const Color(0xFF8B008B);
 
-      case "darkolivegreen":
-        return Color(0xFF556B2F);
+      case 'darkolivegreen':
+        return const Color(0xFF556B2F);
 
-      case "darkorange":
-        return Color(0xFFFF8C00);
+      case 'darkorange':
+        return const Color(0xFFFF8C00);
 
-      case "darkorchid":
-        return Color(0xFF9932CC);
+      case 'darkorchid':
+        return const Color(0xFF9932CC);
 
-      case "darkred":
-        return Color(0xFF8B0000);
+      case 'darkred':
+        return const Color(0xFF8B0000);
 
-      case "darksalmon":
-        return Color(0xFFE9967A);
+      case 'darksalmon':
+        return const Color(0xFFE9967A);
 
-      case "darkseagreen":
-        return Color(0xFF8FBC8F);
+      case 'darkseagreen':
+        return const Color(0xFF8FBC8F);
 
-      case "darkslateblue":
-        return Color(0xFF483D8B);
+      case 'darkslateblue':
+        return const Color(0xFF483D8B);
 
-      case "darkslategray":
-        return Color(0xFF2F4F4F);
+      case 'darkslategray':
+        return const Color(0xFF2F4F4F);
 
-      case "darkslategrey":
-        return Color(0xFF2F4F4F);
+      case 'darkslategrey':
+        return const Color(0xFF2F4F4F);
 
-      case "darkturquoise":
-        return Color(0xFF00CED1);
+      case 'darkturquoise':
+        return const Color(0xFF00CED1);
 
-      case "darkviolet":
-        return Color(0xFF9400D3);
+      case 'darkviolet':
+        return const Color(0xFF9400D3);
 
-      case "deeppink":
-        return Color(0xFFFF1493);
+      case 'deeppink':
+        return const Color(0xFFFF1493);
 
-      case "deepskyblue":
-        return Color(0xFF00BFFF);
+      case 'deepskyblue':
+        return const Color(0xFF00BFFF);
 
-      case "dimgray":
-        return Color(0xFF696969);
+      case 'dimgray':
+        return const Color(0xFF696969);
 
-      case "dimgrey":
-        return Color(0xFF696969);
+      case 'dimgrey':
+        return const Color(0xFF696969);
 
-      case "dodgerblue":
-        return Color(0xFF1E90FF);
+      case 'dodgerblue':
+        return const Color(0xFF1E90FF);
 
-      case "firebrick":
-        return Color(0xFFB22222);
+      case 'firebrick':
+        return const Color(0xFFB22222);
 
-      case "floralwhite":
-        return Color(0xFFFFFAF0);
+      case 'floralwhite':
+        return const Color(0xFFFFFAF0);
 
-      case "forestgreen":
-        return Color(0xFF228B22);
+      case 'forestgreen':
+        return const Color(0xFF228B22);
 
-      case "fuchsia":
-        return Color(0xFFFF00FF);
+      case 'fuchsia':
+        return const Color(0xFFFF00FF);
 
-      case "gainsboro":
-        return Color(0xFFDCDCDC);
+      case 'gainsboro':
+        return const Color(0xFFDCDCDC);
 
-      case "ghostwhite":
-        return Color(0xFFF8F8FF);
+      case 'ghostwhite':
+        return const Color(0xFFF8F8FF);
 
-      case "gold":
-        return Color(0xFFFFD700);
+      case 'gold':
+        return const Color(0xFFFFD700);
 
-      case "goldenrod":
-        return Color(0xFFDAA520);
+      case 'goldenrod':
+        return const Color(0xFFDAA520);
 
-      case "gray":
-        return Color(0xFF808080);
+      case 'gray':
+        return const Color(0xFF808080);
 
-      case "green":
-        return Color(0xFF008000);
+      case 'green':
+        return const Color(0xFF008000);
 
-      case "greenyellow":
-        return Color(0xFFADFF2F);
+      case 'greenyellow':
+        return const Color(0xFFADFF2F);
 
-      case "grey":
-        return Color(0xFF808080);
+      case 'grey':
+        return const Color(0xFF808080);
 
-      case "honeydew":
-        return Color(0xFFF0FFF0);
+      case 'honeydew':
+        return const Color(0xFFF0FFF0);
 
-      case "hotpink":
-        return Color(0xFFFF69B4);
+      case 'hotpink':
+        return const Color(0xFFFF69B4);
 
-      case "indianred":
-        return Color(0xFFCD5C5C);
+      case 'indianred':
+        return const Color(0xFFCD5C5C);
 
-      case "indigo":
-        return Color(0xFF4B0082);
+      case 'indigo':
+        return const Color(0xFF4B0082);
 
-      case "ivory":
-        return Color(0xFFFFFFF0);
+      case 'ivory':
+        return const Color(0xFFFFFFF0);
 
-      case "khaki":
-        return Color(0xFFF0E68C);
+      case 'khaki':
+        return const Color(0xFFF0E68C);
 
-      case "lavender":
-        return Color(0xFFE6E6FA);
+      case 'lavender':
+        return const Color(0xFFE6E6FA);
 
-      case "lavenderblush":
-        return Color(0xFFFFF0F5);
+      case 'lavenderblush':
+        return const Color(0xFFFFF0F5);
 
-      case "lawngreen":
-        return Color(0xFF7CFC00);
+      case 'lawngreen':
+        return const Color(0xFF7CFC00);
 
-      case "lemonchiffon":
-        return Color(0xFFFFFACD);
+      case 'lemonchiffon':
+        return const Color(0xFFFFFACD);
 
-      case "lightblue":
-        return Color(0xFFADD8E6);
+      case 'lightblue':
+        return const Color(0xFFADD8E6);
 
-      case "lightcoral":
-        return Color(0xFFF08080);
+      case 'lightcoral':
+        return const Color(0xFFF08080);
 
-      case "lightcyan":
-        return Color(0xFFE0FFFF);
+      case 'lightcyan':
+        return const Color(0xFFE0FFFF);
 
-      case "lightgoldenrodyellow":
-        return Color(0xFFFAFAD2);
+      case 'lightgoldenrodyellow':
+        return const Color(0xFFFAFAD2);
 
-      case "lightgray":
-        return Color(0xFFD3D3D3);
+      case 'lightgray':
+        return const Color(0xFFD3D3D3);
 
-      case "lightgreen":
-        return Color(0xFF90EE90);
+      case 'lightgreen':
+        return const Color(0xFF90EE90);
 
-      case "lightgrey":
-        return Color(0xFFD3D3D3);
+      case 'lightgrey':
+        return const Color(0xFFD3D3D3);
 
-      case "lightpink":
-        return Color(0xFFFFB6C1);
+      case 'lightpink':
+        return const Color(0xFFFFB6C1);
 
-      case "lightsalmon":
-        return Color(0xFFFFA07A);
+      case 'lightsalmon':
+        return const Color(0xFFFFA07A);
 
-      case "lightseagreen":
-        return Color(0xFF20B2AA);
+      case 'lightseagreen':
+        return const Color(0xFF20B2AA);
 
-      case "lightskyblue":
-        return Color(0xFF87CEFA);
+      case 'lightskyblue':
+        return const Color(0xFF87CEFA);
 
-      case "lightslategray":
-        return Color(0xFF778899);
+      case 'lightslategray':
+        return const Color(0xFF778899);
 
-      case "lightslategrey":
-        return Color(0xFF778899);
+      case 'lightslategrey':
+        return const Color(0xFF778899);
 
-      case "lightsteelblue":
-        return Color(0xFFB0C4DE);
+      case 'lightsteelblue':
+        return const Color(0xFFB0C4DE);
 
-      case "lightyellow":
-        return Color(0xFFFFFFE0);
+      case 'lightyellow':
+        return const Color(0xFFFFFFE0);
 
-      case "lime":
-        return Color(0xFF00FF00);
+      case 'lime':
+        return const Color(0xFF00FF00);
 
-      case "limegreen":
-        return Color(0xFF32CD32);
+      case 'limegreen':
+        return const Color(0xFF32CD32);
 
-      case "linen":
-        return Color(0xFFFAF0E6);
+      case 'linen':
+        return const Color(0xFFFAF0E6);
 
-      case "magenta":
-        return Color(0xFFFF00FF);
+      case 'magenta':
+        return const Color(0xFFFF00FF);
 
-      case "maroon":
-        return Color(0xFF800000);
+      case 'maroon':
+        return const Color(0xFF800000);
 
-      case "mediumaquamarine":
-        return Color(0xFF66CDAA);
+      case 'mediumaquamarine':
+        return const Color(0xFF66CDAA);
 
-      case "mediumblue":
-        return Color(0xFF0000CD);
+      case 'mediumblue':
+        return const Color(0xFF0000CD);
 
-      case "mediumorchid":
-        return Color(0xFFBA55D3);
+      case 'mediumorchid':
+        return const Color(0xFFBA55D3);
 
-      case "mediumpurple":
-        return Color(0xFF9370DB);
+      case 'mediumpurple':
+        return const Color(0xFF9370DB);
 
-      case "mediumseagreen":
-        return Color(0xFF3CB371);
+      case 'mediumseagreen':
+        return const Color(0xFF3CB371);
 
-      case "mediumslateblue":
-        return Color(0xFF7B68EE);
+      case 'mediumslateblue':
+        return const Color(0xFF7B68EE);
 
-      case "mediumspringgreen":
-        return Color(0xFF00FA9A);
+      case 'mediumspringgreen':
+        return const Color(0xFF00FA9A);
 
-      case "mediumturquoise":
-        return Color(0xFF48D1CC);
+      case 'mediumturquoise':
+        return const Color(0xFF48D1CC);
 
-      case "mediumvioletred":
-        return Color(0xFFC71585);
+      case 'mediumvioletred':
+        return const Color(0xFFC71585);
 
-      case "midnightblue":
-        return Color(0xFF191970);
+      case 'midnightblue':
+        return const Color(0xFF191970);
 
-      case "mintcream":
-        return Color(0xFFF5FFFA);
+      case 'mintcream':
+        return const Color(0xFFF5FFFA);
 
-      case "mistyrose":
-        return Color(0xFFFFE4E1);
+      case 'mistyrose':
+        return const Color(0xFFFFE4E1);
 
-      case "moccasin":
-        return Color(0xFFFFE4B5);
+      case 'moccasin':
+        return const Color(0xFFFFE4B5);
 
-      case "navajowhite":
-        return Color(0xFFFFDEAD);
+      case 'navajowhite':
+        return const Color(0xFFFFDEAD);
 
-      case "navy":
-        return Color(0xFF000080);
+      case 'navy':
+        return const Color(0xFF000080);
 
-      case "oldlace":
-        return Color(0xFFFDF5E6);
+      case 'oldlace':
+        return const Color(0xFFFDF5E6);
 
-      case "olive":
-        return Color(0xFF808000);
+      case 'olive':
+        return const Color(0xFF808000);
 
-      case "olivedrab":
-        return Color(0xFF6B8E23);
+      case 'olivedrab':
+        return const Color(0xFF6B8E23);
 
-      case "orange":
-        return Color(0xFFFFA500);
+      case 'orange':
+        return const Color(0xFFFFA500);
 
-      case "orangered":
-        return Color(0xFFFF4500);
+      case 'orangered':
+        return const Color(0xFFFF4500);
 
-      case "orchid":
-        return Color(0xFFDA70D6);
+      case 'orchid':
+        return const Color(0xFFDA70D6);
 
-      case "palegoldenrod":
-        return Color(0xFFEEE8AA);
+      case 'palegoldenrod':
+        return const Color(0xFFEEE8AA);
 
-      case "palegreen":
-        return Color(0xFF98FB98);
+      case 'palegreen':
+        return const Color(0xFF98FB98);
 
-      case "paleturquoise":
-        return Color(0xFFAFEEEE);
+      case 'paleturquoise':
+        return const Color(0xFFAFEEEE);
 
-      case "palevioletred":
-        return Color(0xFFDB7093);
+      case 'palevioletred':
+        return const Color(0xFFDB7093);
 
-      case "papayawhip":
-        return Color(0xFFFFEFD5);
+      case 'papayawhip':
+        return const Color(0xFFFFEFD5);
 
-      case "peachpuff":
-        return Color(0xFFFFDAB9);
+      case 'peachpuff':
+        return const Color(0xFFFFDAB9);
 
-      case "peru":
-        return Color(0xFFCD853F);
+      case 'peru':
+        return const Color(0xFFCD853F);
 
-      case "pink":
-        return Color(0xFFFFC0CB);
+      case 'pink':
+        return const Color(0xFFFFC0CB);
 
-      case "plum":
-        return Color(0xFFDDA0DD);
+      case 'plum':
+        return const Color(0xFFDDA0DD);
 
-      case "powderblue":
-        return Color(0xFFB0E0E6);
+      case 'powderblue':
+        return const Color(0xFFB0E0E6);
 
-      case "purple":
-        return Color(0xFF800080);
+      case 'purple':
+        return const Color(0xFF800080);
 
-      case "rebeccapurple":
-        return Color(0xFF663399);
+      case 'rebeccapurple':
+        return const Color(0xFF663399);
 
-      case "red":
-        return Color(0xFFFF0000);
+      case 'red':
+        return const Color(0xFFFF0000);
 
-      case "rosybrown":
-        return Color(0xFFBC8F8F);
+      case 'rosybrown':
+        return const Color(0xFFBC8F8F);
 
-      case "royalblue":
-        return Color(0xFF4169E1);
+      case 'royalblue':
+        return const Color(0xFF4169E1);
 
-      case "saddlebrown":
-        return Color(0xFF8B4513);
+      case 'saddlebrown':
+        return const Color(0xFF8B4513);
 
-      case "salmon":
-        return Color(0xFFFA8072);
+      case 'salmon':
+        return const Color(0xFFFA8072);
 
-      case "sandybrown":
-        return Color(0xFFF4A460);
+      case 'sandybrown':
+        return const Color(0xFFF4A460);
 
-      case "seagreen":
-        return Color(0xFF2E8B57);
+      case 'seagreen':
+        return const Color(0xFF2E8B57);
 
-      case "seashell":
-        return Color(0xFFFFF5EE);
+      case 'seashell':
+        return const Color(0xFFFFF5EE);
 
-      case "sienna":
-        return Color(0xFFA0522D);
+      case 'sienna':
+        return const Color(0xFFA0522D);
 
-      case "silver":
-        return Color(0xFFC0C0C0);
+      case 'silver':
+        return const Color(0xFFC0C0C0);
 
-      case "skyblue":
-        return Color(0xFF87CEEB);
+      case 'skyblue':
+        return const Color(0xFF87CEEB);
 
-      case "slateblue":
-        return Color(0xFF6A5ACD);
+      case 'slateblue':
+        return const Color(0xFF6A5ACD);
 
-      case "slategray":
-        return Color(0xFF708090);
+      case 'slategray':
+        return const Color(0xFF708090);
 
-      case "slategrey":
-        return Color(0xFF708090);
+      case 'slategrey':
+        return const Color(0xFF708090);
 
-      case "snow":
-        return Color(0xFFFFFAFA);
+      case 'snow':
+        return const Color(0xFFFFFAFA);
 
-      case "springgreen":
-        return Color(0xFF00FF7F);
+      case 'springgreen':
+        return const Color(0xFF00FF7F);
 
-      case "steelblue":
-        return Color(0xFF4682B4);
+      case 'steelblue':
+        return const Color(0xFF4682B4);
 
-      case "tan":
-        return Color(0xFFD2B48C);
+      case 'tan':
+        return const Color(0xFFD2B48C);
 
-      case "teal":
-        return Color(0xFF008080);
+      case 'teal':
+        return const Color(0xFF008080);
 
-      case "thistle":
-        return Color(0xFFD8BFD8);
+      case 'thistle':
+        return const Color(0xFFD8BFD8);
 
-      case "tomato":
-        return Color(0xFFFF6347);
+      case 'tomato':
+        return const Color(0xFFFF6347);
 
-      case "turquoise":
-        return Color(0xFF40E0D0);
+      case 'turquoise':
+        return const Color(0xFF40E0D0);
 
-      case "violet":
-        return Color(0xFFEE82EE);
+      case 'violet':
+        return const Color(0xFFEE82EE);
 
-      case "wheat":
-        return Color(0xFFF5DEB3);
+      case 'wheat':
+        return const Color(0xFFF5DEB3);
 
-      case "white":
-        return Color(0xFFFFFFFF);
+      case 'white':
+        return const Color(0xFFFFFFFF);
 
-      case "whitesmoke":
-        return Color(0xFFF5F5F5);
+      case 'whitesmoke':
+        return const Color(0xFFF5F5F5);
 
-      case "yellow":
-        return Color(0xFFFFFF00);
+      case 'yellow':
+        return const Color(0xFFFFFF00);
 
-      case "yellowgreen":
-        return Color(0xFF9ACD32);
+      case 'yellowgreen':
+        return const Color(0xFF9ACD32);
 
       default:
-        return Color(0xFF9E9E9E);
+        return const Color(0xFF9E9E9E);
     }
   }
 }

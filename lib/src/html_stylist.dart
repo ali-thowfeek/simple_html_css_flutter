@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
+import 'package:flutter/material.dart';
 import 'package:html_unescape/html_unescape.dart';
 
 import './internals.dart';
-import 'package:flutter/material.dart';
 
 /// This class is the only class you should be using from the
 /// simple_html_css package. It contains all the methods you need to
@@ -48,8 +48,8 @@ class HTML {
   ///   context,
   ///   htmlContent,
   ///   overrideStyle: {
-  ///     "p": TextStyle(color: Colors.red),
-  ///     "a": TextStyle(decoration: TextDecoration.underline),
+  ///     'p': TextStyle(color: Colors.red),
+  ///     'a': TextStyle(decoration: TextDecoration.underline),
   ///     //...
   ///     //...
   ///   },
@@ -60,32 +60,33 @@ class HTML {
       {Function? linksCallback,
       Map<String, TextStyle>? overrideStyle,
       TextStyle? defaultTextStyle}) {
-    //Validating empty content
+    // Validating empty content
     if (htmlContent.isEmpty) {
-      return TextSpan();
+      return const TextSpan();
     }
 
-    //to fix a known issue with &nbsp; when appearing after an ending tag
-    htmlContent =
-        htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
+    String content = htmlContent;
 
-    //to fix a known issue with non self closing <br> tags
-    htmlContent = htmlContent.replaceAll("<br>", "<br />");
+    // to fix a known issue with &nbsp; when appearing after an ending tag
+    content = content.replaceAll('&nbsp;', ' ').replaceAll('&nbsp', ' ');
 
-    Parser p = Parser(context, HtmlUnescape().convert(htmlContent),
+    // to fix a known issue with non self closing <br> tags
+    content = content.replaceAll('<br>', '<br />');
+
+    final Parser parser = Parser(context, HtmlUnescape().convert(content),
         linksCallback: linksCallback,
-        overrideStyleMap: overrideStyle ?? Map<String, TextStyle>(),
+        overrideStyleMap: overrideStyle ?? <String, TextStyle>{},
         defaultTextStyle: defaultTextStyle);
 
-    var list = <TextSpan>[];
+    List<TextSpan> list = <TextSpan>[];
     try {
-      list = p.parse();
-    } catch (e, s) {
-      print('simple_html_css Exception: $e');
-      print('simple_html_css Stack Trace: $s');
+      list = parser.parse();
+    } catch (error, stackTrace) {
+      debugPrint('simple_html_css Exception: ${error.toString()}');
+      debugPrint('simple_html_css Stack Trace: ${stackTrace.toString()}');
     }
 
-    return TextSpan(text: "", children: list);
+    return TextSpan(text: '', children: list);
   }
 
   /// Returns a [RichText] widget you can directly add to your widget tree.
@@ -112,8 +113,8 @@ class HTML {
   ///   context,
   ///   htmlContent,
   ///   overrideStyle: {
-  ///     "p": TextStyle(color: Colors.red),
-  ///     "a": TextStyle(decoration: TextDecoration.underline),
+  ///     'p': TextStyle(color: Colors.red),
+  ///     'a': TextStyle(decoration: TextDecoration.underline),
   ///     //...
   ///     //...
   ///   },
@@ -125,9 +126,13 @@ class HTML {
       Map<String, TextStyle>? overrideStyle,
       TextStyle? defaultTextStyle}) {
     return RichText(
-        text: toTextSpan(context, htmlContent,
-            linksCallback: linksCallback,
-            overrideStyle: overrideStyle,
-            defaultTextStyle: defaultTextStyle));
+      text: toTextSpan(
+        context,
+        htmlContent,
+        linksCallback: linksCallback,
+        overrideStyle: overrideStyle,
+        defaultTextStyle: defaultTextStyle,
+      ),
+    );
   }
 }
