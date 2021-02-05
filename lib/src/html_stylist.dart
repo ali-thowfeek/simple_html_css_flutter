@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import 'package:html_unescape/html_unescape_small.dart';
+import 'package:html_unescape/html_unescape.dart';
 
 import './internals.dart';
 import 'package:flutter/material.dart';
