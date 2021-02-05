@@ -60,6 +60,11 @@ class HTML {
       {Function? linksCallback,
       Map<String, TextStyle>? overrideStyle,
       TextStyle? defaultTextStyle}) {
+    //Validating empty content
+    if (htmlContent.isEmpty) {
+      return TextSpan();
+    }
+
     //to fix a known issue with &nbsp; when appearing after an ending tag
     htmlContent =
         htmlContent.replaceAll("&nbsp;", " ").replaceAll("&nbsp", " ");
