@@ -334,15 +334,16 @@ class Parser {
       }
     });
 
-    //removing last textSpan to avoid extra space at the bottom
-    if (spans.isNotEmpty) {
-      for (int i = 0; i < 3; i++) {
-        if (spans.last.text == '\n\n' || spans.last.text == "\n")
-          spans.removeLast();
-      }
-    } else {
+    //checking last 5 and removing the textSpan(s) to avoid extra space at the bottom
+    for (int i = 0; i < 5 && spans.isNotEmpty; i++) {
+      if (spans.last.text == '\n\n' || spans.last.text == "\n")
+        spans.removeLast();
+    }
+
+    if (spans.isEmpty) {
       print("Empty HTML content");
     }
+
     return spans;
   }
 }
