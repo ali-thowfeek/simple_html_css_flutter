@@ -1,3 +1,8 @@
+# [3.0.0-nullsafety.4] - Feb 5, 2021
+* Add empty content validation
+* Fix for some escaped chars not converting
+* Remove all trailing newline text spans
+
 # [3.0.0-nullsafety.3] - Feb 1, 2021
 * Minor render issue fix
 
