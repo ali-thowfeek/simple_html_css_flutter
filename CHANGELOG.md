@@ -1,4 +1,9 @@
-# [2.0.1] - Feb 1st, 2021
+# [2.0.2] - Feb 5th, 2021
+
+* Fixed an issue with trailing blank spaces
+* Fixed an issue with some escaped characters not rendering
+
+## [2.0.1] - Feb 1st, 2021
 
 * Fixed an issue with text within body tag not rendering
 * Improved error handling
