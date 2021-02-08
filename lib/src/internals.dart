@@ -93,11 +93,6 @@ class Parser {
           textStyle = StyleGenUtils.addLineHeight(textStyle, value);
           break;
 
-        //dropping partial support for li bullets
-        // case "list_item":
-        // text = "• " + text;
-        // break;
-
         case "visit_link":
           isLink = true;
           link = TextGenUtils.getLink(value);
@@ -137,8 +132,9 @@ class Parser {
   }
 
   /// Converts HTML content to a list of [TextSpan] objects
-  List<TextSpan> parse() {
-    List<TextSpan> spans = <TextSpan>[];
+  List<InlineSpan> parse() {
+    List<InlineSpan> spans = <InlineSpan>[];
+    bool isLiTag = false;
     _events.forEach((event) {
       if (event is xmle.XmlStartElementEvent) {
         if (!event.isSelfClosing) {
@@ -249,30 +245,10 @@ class Parser {
                   " color: #4287f5;";
               break;
 
-//dropping partial support for ul-li bullets
-//            case "li":
-//              styles = "list_item:ul;";
-//              break;
-//              RichText(
-//                text: TextSpan(
-//                  text:"",
-//                  style: TextStyle(color: Colors.black),
-//                  children: <InlineSpan>[
-//                    WidgetSpan(
-//                        alignment: PlaceholderAlignment.baseline,
-//                        baseline: TextBaseline.alphabetic,
-//                        child: Row(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: <Widget>[
-//                            Text( '• '),
-//                            SizedBox(width: 20,),
-//                            Expanded(child: Text('Example text',)),
-//                          ],
-//                        )
-//                    ),
-//                  ],
-//                ),
-//              )
+            case "li":
+              styles = "list_item:ul;";
+              isLiTag = true;
+              break;
           }
 
           event.attributes.forEach((attribute) {
@@ -303,9 +279,13 @@ class Parser {
             event.name == 'h5' ||
             event.name == 'h6' ||
             event.name == 'div') {
-          spans.add(TextSpan(
-            text: "\n\n",
-          ));
+          if (spans.isNotEmpty && spans.last is TextSpan) {
+            var last = spans.last as TextSpan;
+            if (last.text != "\n\n")
+              spans.add(TextSpan(
+                text: "\n\n",
+              ));
+          }
         } else if (event.name == 'li') {
           spans.add(TextSpan(
             text: "\n",
@@ -329,7 +309,31 @@ class Parser {
       if (event is xmle.XmlTextEvent) {
         final currentSpan = _handleText(event.text);
         if (currentSpan.text.isNotEmpty) {
-          spans.add(currentSpan);
+          if (isLiTag) {
+            spans.add(
+              WidgetSpan(
+                alignment: PlaceholderAlignment.baseline,
+                baseline: TextBaseline.alphabetic,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text('•'),
+                    ),
+                    Expanded(
+                      child: RichText(
+                        text: currentSpan,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+            isLiTag = false;
+          } else {
+            spans.add(currentSpan);
+          }
         }
       }
     });
@@ -339,7 +343,9 @@ class Parser {
       var reversed = spans.reversed.toList();
 
       while (reversed.isNotEmpty &&
-          (reversed.first.text == '\n\n' || reversed.first.text == '\n')) {
+          reversed.first is TextSpan &&
+          ((reversed.first as TextSpan).text == '\n\n' ||
+              (reversed.first as TextSpan).text == '\n')) {
         reversed.removeAt(0);
       }
 

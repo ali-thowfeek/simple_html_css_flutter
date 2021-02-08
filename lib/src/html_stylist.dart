@@ -56,7 +56,7 @@ class HTML {
   /// );
   /// ```
 
-  static TextSpan toTextSpan(BuildContext context, String htmlContent,
+  static InlineSpan toTextSpan(BuildContext context, String htmlContent,
       {Function linksCallback,
       Map<String, TextStyle> overrideStyle,
       TextStyle defaultTextStyle}) {
@@ -72,7 +72,7 @@ class HTML {
         overrideStyleMap: overrideStyle ?? Map<String, TextStyle>(),
         defaultTextStyle: defaultTextStyle);
 
-    var list = <TextSpan>[];
+    var list = <InlineSpan>[];
     try {
       list = p.parse();
     } catch (e, s) {
