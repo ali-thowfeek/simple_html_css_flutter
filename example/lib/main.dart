@@ -41,10 +41,10 @@ class Home extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text('Demo')),
+        appBar: AppBar(title: const Text('Demo')),
         body: Container(
           color: Colors.white,
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: RichText(text: textSpan),
         ),
       ),
