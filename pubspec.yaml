@@ -18,3 +18,4 @@ dev_dependencies:
   lint: ^1.5.1
 
 flutter:
+  uses-material-design: true
