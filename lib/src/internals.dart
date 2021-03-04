@@ -34,18 +34,22 @@ class _Tag {
 /// This class is at the core of the simple_html_css package . It has most of
 /// the methods required to convert HTML content into Flutter widgets
 class Parser {
-  Parser(this.context, String data,
-      {this.defaultTextStyle, Function? linksCallback, this.overrideStyleMap}) {
+  Parser(
+    this.context,
+    String data, {
+    this.defaultTextStyle,
+    this.linksCallback,
+    this.overrideStyleMap,
+  }) {
     _events = parseEvents(data);
-    if (linksCallback != null) _linksCallback = linksCallback;
   }
 
   final List<_Tag> _stack = <_Tag>[];
   Iterable<XmlEvent> _events = <XmlEvent>[];
   final BuildContext context;
-  static final Function nullFunction = () {};
-  Function _linksCallback = nullFunction;
+  final Function(dynamic)? linksCallback;
   final Map<String, TextStyle>? overrideStyleMap;
+
   final TextStyle? defaultTextStyle;
 
   TextSpan _getTextSpan(String text, String style, TextStyle overrideStyle) {
@@ -116,8 +120,8 @@ class Parser {
         text: text,
         recognizer: TapGestureRecognizer()
           ..onTap = () {
-            if (_linksCallback != nullFunction) {
-              _linksCallback(link);
+            if (linksCallback != null) {
+              linksCallback!(link);
             } else {
               debugPrint('Add a link callback to visit ${link.toString()}');
             }

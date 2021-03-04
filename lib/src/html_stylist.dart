@@ -57,7 +57,7 @@ class HTML {
   /// ```
 
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
-      {Function? linksCallback,
+      {Function(dynamic)? linksCallback,
       Map<String, TextStyle>? overrideStyle,
       TextStyle? defaultTextStyle}) {
     // Validating empty content
@@ -122,7 +122,7 @@ class HTML {
   /// ```
 
   static RichText toRichText(BuildContext context, String htmlContent,
-      {Function? linksCallback,
+      {Function(dynamic)? linksCallback,
       Map<String, TextStyle>? overrideStyle,
       TextStyle? defaultTextStyle}) {
     return RichText(
