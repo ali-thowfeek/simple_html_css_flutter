@@ -1,3 +1,7 @@
+## 3.0.1 - Mar 4, 2021
+* Update lint
+* Improve code
+
 ## 3.0.0 - Feb 23, 2021
 * Publish stable preview version
 
