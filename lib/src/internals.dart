@@ -146,7 +146,8 @@ class Parser {
 
   /// Converts HTML content to a list of [TextSpan] objects
   List<TextSpan> parse() {
-    List<TextSpan> spans = <TextSpan>[];
+    final List<TextSpan> spans = <TextSpan>[];
+    bool isLiTag = false;
     for (final XmlEvent event in _events) {
       if (event is XmlStartElementEvent) {
         if (!event.isSelfClosing) {
@@ -257,30 +258,10 @@ class Parser {
                   'visit_link:__#TO_GET#__; text-decoration: underline; color: #4287f5;';
               break;
 
-// dropping partial support for ul-li bullets
-//            case 'li':
-//              styles = 'list_item:ul;';
-//              break;
-//              RichText(
-//                text: TextSpan(
-//                  text:'',
-//                  style: TextStyle(color: Colors.black),
-//                  children: <InlineSpan>[
-//                    WidgetSpan(
-//                        alignment: PlaceholderAlignment.baseline,
-//                        baseline: TextBaseline.alphabetic,
-//                        child: Row(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: <Widget>[
-//                            Text( '• '),
-//                            SizedBox(width: 20,),
-//                            Expanded(child: Text('Example text',)),
-//                          ],
-//                        )
-//                    ),
-//                  ],
-//                ),
-//              )
+            case 'li':
+              styles = 'list_item:ul;';
+              isLiTag = true;
+              break;
           }
 
           for (final XmlEventAttribute attribute in event.attributes) {
@@ -331,21 +312,47 @@ class Parser {
       if (event is XmlTextEvent) {
         final TextSpan currentSpan = _handleText(event.text);
         if (currentSpan.text?.isNotEmpty == true) {
-          spans.add(currentSpan);
+          if (isLiTag) {
+            spans.add(
+              TextSpan(
+                children: <WidgetSpan>[
+                  WidgetSpan(
+                    alignment: PlaceholderAlignment.baseline,
+                    baseline: TextBaseline.alphabetic,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('•'),
+                        ),
+                        Expanded(
+                          child: RichText(
+                            text: currentSpan,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else {
+            spans.add(currentSpan);
+          }
         }
       }
     }
 
     // removing all extra new line textSpans to avoid space at the bottom
     if (spans.isNotEmpty) {
-      final List<TextSpan> reversed = spans.reversed.toList();
-
-      while (reversed.isNotEmpty &&
-          (reversed.first.text == '\n\n' || reversed.first.text == '\n')) {
-        reversed.removeAt(0);
+      for (int i = spans.length - 1; i >= 0; i--) {
+        if (spans[i].text == '\n\n') {
+          spans.removeAt(i);
+        } else {
+          break;
+        }
       }
-
-      spans = reversed.reversed.toList();
     } else {
       debugPrint('Empty HTML content');
     }
