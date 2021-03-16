@@ -45,7 +45,15 @@ class Home extends StatelessWidget {
         body: Container(
           color: Colors.white,
           padding: const EdgeInsets.all(16.0),
-          child: RichText(text: textSpan),
+          child: Column(
+            children: <Widget>[
+              RichText(text: textSpan),
+              Container(
+                height: 2,
+                color: Colors.blue,
+              )
+            ],
+          ),
         ),
       ),
     );
