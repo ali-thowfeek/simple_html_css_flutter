@@ -315,12 +315,9 @@ class Parser {
 
     // removing all extra new line textSpans to avoid space at the bottom
     if (spans.isNotEmpty) {
-      for (int i = spans.length - 1; i >= 0; i--) {
-        if (spans[i].text == '\n\n' || spans[i].text == '\n') {
-          spans.removeAt(i);
-        } else {
-          break;
-        }
+      while (spans.isNotEmpty &&
+          (spans.last.text == '\n\n' || spans.last.text == '\n')) {
+        spans.removeLast();
       }
     } else {
       debugPrint('Empty HTML content');
