@@ -86,7 +86,7 @@ class HTML {
       debugPrint('simple_html_css Stack Trace: ${stackTrace.toString()}');
     }
 
-    return TextSpan(text: '', children: list);
+    return TextSpan(children: list);
   }
 
   /// Returns a [RichText] widget you can directly add to your widget tree.
