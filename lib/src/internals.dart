@@ -324,48 +324,64 @@ class Parser {
     }
 
     // bullet points are handled here after creating the spans
-    // TODO: only the first li is handled.
     final List<TextSpan> returnedSpans = <TextSpan>[];
-    if (containsLiTag == true) {
-      final int start =
-          spans.indexWhere((TextSpan element) => element.text == '<ul__li>') +
-              1;
+    try {
+      if (containsLiTag == true) {
+        while (spans.isNotEmpty) {
+          final int start = spans
+              .indexWhere((TextSpan element) => element.text == '<ul__li>');
 
-      final int end =
-          spans.indexWhere((TextSpan element) => element.text == '</ul__li>');
+          final int end = spans
+              .indexWhere((TextSpan element) => element.text == '</ul__li>');
 
-      final List<TextSpan> listItems = spans.getRange(start, end).toList();
+          if (start < 0 || end < 0 || end < start) break;
 
-      returnedSpans.addAll(spans.getRange(0, start - 1));
+          returnedSpans.addAll(spans.getRange(0, start));
 
-      returnedSpans.add(
-        TextSpan(
-          children: <WidgetSpan>[
-            WidgetSpan(
-              alignment: PlaceholderAlignment.baseline,
-              baseline: TextBaseline.alphabetic,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text('•'),
-                  ),
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(children: listItems),
+          final List<TextSpan> listItems =
+              spans.getRange(start + 1, end).toList();
+
+          if (listItems.isNotEmpty) {
+            returnedSpans.add(
+              TextSpan(
+                children: <WidgetSpan>[
+                  WidgetSpan(
+                    alignment: PlaceholderAlignment.baseline,
+                    baseline: TextBaseline.alphabetic,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('•',
+                              textScaleFactor: 1,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              )),
+                        ),
+                        Expanded(
+                          child: RichText(
+                            text: TextSpan(
+                              children: listItems,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
-        ),
-      );
-
-      returnedSpans.addAll(spans.getRange(end + 1, spans.length));
+            );
+          }
+          spans.removeRange(start, end + 1);
+          spans.removeRange(0, start);
+        }
+      }
+      returnedSpans.addAll(spans);
+    } catch (error) {
+      debugPrint(error.toString());
     }
-
     return returnedSpans;
   }
 }
