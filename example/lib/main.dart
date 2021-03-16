@@ -17,7 +17,12 @@ class Home extends StatelessWidget {
 <div style='font-size:17px'>We write things that are <span style='font-size:1.5em;'>Big,</span> <b>bold</b>&nbsp; or <span style='color:brown'>colorful</span></div>
 <p style='font-family:times;'>Some different FONT with <span style='background-color:lightcyan;'>this part highlighted</span></p>
 <div style='line-height:2; font-size:17px'><b style='color: rgb(0,122,255); font-weight:500;'>Finally some line heights.</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in leo id dui bibendum fringilla in et arcu. In vehicula vel est sed mattis. Duis varius, sem non mattis.</div>
-
+<ul>
+<li>Lorem <a>ipsum</a> dolor sit <span style='color: orange'>This is a span</span> amet, consectetur adipiscing elit. Phasellus a consectetur ante.</li>
+<li>Aenean lacinia gravida lobortis. Nunc libero leo, porta et mi nec, laoreet hendrerit urna.</li>
+<li>Phasellus laoreet ac leo eget faucibus. Ut non tellus ac tortor facilisis vulputate eget vitae tellus. Ut laoreet tempus lacus et dictum. Etiam porttitor nisl sed est rhoncus, sed aliquam quam fermentum.</li>
+</ul>
+<p>The para after the list</p>
 </body>
 """;
 
