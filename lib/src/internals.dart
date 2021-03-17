@@ -313,16 +313,6 @@ class Parser {
       }
     }
 
-    // removing all extra new line textSpans to avoid space at the bottom
-    if (spans.isNotEmpty) {
-      while (spans.isNotEmpty &&
-          (spans.last.text == '\n\n' || spans.last.text == '\n')) {
-        spans.removeLast();
-      }
-    } else {
-      debugPrint('Empty HTML content');
-    }
-
     // bullet points are handled here after creating the spans
     final List<TextSpan> returnedSpans = <TextSpan>[];
     try {
@@ -336,7 +326,7 @@ class Parser {
 
           if (start < 0 || end < 0 || end < start) break;
 
-          returnedSpans.addAll(spans.getRange(0, start));
+          if (start > 0) returnedSpans.addAll(spans.getRange(0, start));
 
           final List<TextSpan> listItems =
               spans.getRange(start + 1, end).toList();
@@ -382,6 +372,36 @@ class Parser {
     } catch (error) {
       debugPrint(error.toString());
     }
+
+    // removing extra new line textSpans at top and bottom
+    if (returnedSpans.isNotEmpty) {
+      while (returnedSpans.isNotEmpty && (_spanIsEmpty(returnedSpans.last))) {
+        returnedSpans.removeLast();
+      }
+      while (returnedSpans.isNotEmpty && (_spanIsEmpty(returnedSpans.first))) {
+        returnedSpans.removeAt(0);
+      }
+
+      // remove more than one empty line
+      int emptySpans = 0;
+      for (final TextSpan span in returnedSpans) {
+        if (_spanIsEmpty(span)) {
+          if (emptySpans > 1) {
+            returnedSpans.remove(span);
+          } else {
+            emptySpans++;
+          }
+        } else {
+          emptySpans = 0;
+        }
+      }
+    } else {
+      debugPrint('Empty HTML content');
+    }
+
     return returnedSpans;
   }
 }
+
+bool _spanIsEmpty(TextSpan span) =>
+    span.text == ' ' || span.text == '\n' || span.text == '\n\n';
