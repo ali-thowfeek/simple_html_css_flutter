@@ -38,6 +38,7 @@ class Home extends StatelessWidget {
       defaultTextStyle: TextStyle(color: Colors.grey[700]),
       overrideStyle: <String, TextStyle>{
         'p': const TextStyle(fontSize: 17.3),
+        'li': const TextStyle(fontSize: 15),
         'a': const TextStyle(wordSpacing: 2),
         // specify any tag not just the supported ones,
         // and apply TextStyles to them and/override them

@@ -275,8 +275,6 @@ class Parser {
         }
       }
 
-      // TODO: see if there is a better way to add space after these tags
-      // maybe use widget spans
       if (event is XmlEndElementEvent) {
         if (event.name == 'p' ||
             event.name == 'h1' ||
@@ -328,10 +326,16 @@ class Parser {
 
           if (start > 0) returnedSpans.addAll(spans.getRange(0, start));
 
-          final List<TextSpan> listItems =
+          final List<TextSpan> singleListItemSpans =
               spans.getRange(start + 1, end).toList();
 
-          if (listItems.isNotEmpty) {
+          if (singleListItemSpans.isNotEmpty) {
+            // Bullet size and the baseline height is determined by
+            // the first spans font size. if Its null then falls back to 14
+            double bulletFontSize =
+                singleListItemSpans.first.style?.fontSize ?? 14;
+            bulletFontSize = bulletFontSize + bulletFontSize / 4;
+
             returnedSpans.add(
               TextSpan(
                 children: <WidgetSpan>[
@@ -341,18 +345,16 @@ class Parser {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: bulletFontSize * 0.55),
                           child: Baseline(
-                            //TODO: make this val calculated from the font size
-                            baseline: 14,
+                            baseline: bulletFontSize * 0.7,
                             baselineType: TextBaseline.alphabetic,
                             child: Text(
                               '•',
-                              textScaleFactor: 1,
                               style: TextStyle(
-                                //TODO: make this val calculated
-                                fontSize: 18,
+                                fontSize: bulletFontSize,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -361,7 +363,7 @@ class Parser {
                         Expanded(
                           child: RichText(
                             text: TextSpan(
-                              children: listItems,
+                              children: singleListItemSpans,
                             ),
                           ),
                         ),
