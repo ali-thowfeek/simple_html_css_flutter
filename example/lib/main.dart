@@ -16,7 +16,8 @@ class Home extends StatelessWidget {
 <p>We all spell <span style='color:crimson; text-decoration: underline wavy;'>recieve</span> wrong.<br />Some times we delete <del>stuff</del></p>
 <div style='font-size:17px'>We write things that are <span style='font-size:1.5em;'>Big,</span> <b>bold</b>&nbsp; or <span style='color:brown'>colorful</span></div>
 <p style='font-family:times;'>Some different FONT with <span style='background-color:lightcyan;'>this part highlighted</span></p>
-<div style='line-height:2; font-size:17px'><b style='color: rgb(0,122,255); font-weight:500;'>Finally some line heights.</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in leo id dui bibendum fringilla in et arcu. In vehicula vel est sed mattis. Duis varius, sem non mattis.</div>
+<div style='line-height:2; font-size:17px'><b style='color: rgb(0,122,255); font-weight:500;'>And some line heights.</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in leo id dui bibendum fringilla in et arcu. In vehicula vel est sed mattis. Duis varius, sem non mattis.</div>
+<p>And time for some lists:</p>
 <ul>
 <li>Lorem <a>ipsum</a> dolor sit <span style='color: orange'>This is a span</span> amet, consectetur adipiscing elit. Phasellus a consectetur ante.</li>
 <li>Aenean lacinia gravida lobortis. Nunc libero leo, porta et mi nec, laoreet hendrerit urna.</li>
@@ -50,14 +51,16 @@ class Home extends StatelessWidget {
         body: Container(
           color: Colors.white,
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              RichText(text: textSpan),
-              Container(
-                height: 2,
-                color: Colors.blue,
-              )
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                RichText(text: textSpan),
+                Container(
+                  height: 2,
+                  color: Colors.blue,
+                )
+              ],
+            ),
           ),
         ),
       ),
