@@ -343,12 +343,20 @@ class Parser {
                       children: <Widget>[
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('•',
+                          child: Baseline(
+                            //TODO: make this val calculated from the font size
+                            baseline: 14,
+                            baselineType: TextBaseline.alphabetic,
+                            child: Text(
+                              '•',
                               textScaleFactor: 1,
                               style: TextStyle(
+                                //TODO: make this val calculated
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                              )),
+                              ),
+                            ),
+                          ),
                         ),
                         Expanded(
                           child: RichText(
