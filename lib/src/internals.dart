@@ -254,7 +254,7 @@ class Parser {
 
             case 'a':
               styles =
-                  'visit_link:__#TO_GET#__; text-decoration: underline; color: #4287f5;';
+                  '''visit_link:__#TO_GET#__; text-decoration: underline; color: #4287f5;''';
               break;
 
 // dropping partial support for ul-li bullets
