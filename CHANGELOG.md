@@ -1,3 +1,6 @@
+## 3.0.1+1 - Oct 22, 2021
+* Updated dependencies
+
 ## 3.0.1 - Mar 4, 2021
 * Update lint
 * Improve code
