@@ -1,3 +1,7 @@
+## 4.0.0 - Jul 10, 2022
+* Breaking change, this package now needs a Flutter version >= 3
+* Update dependencies
+
 ## 3.0.1+1 - Oct 22, 2021
 * Updated dependencies
 
