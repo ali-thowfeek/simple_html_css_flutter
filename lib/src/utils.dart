@@ -48,7 +48,7 @@ class TextGenUtils {
 class StyleGenUtils {
   /// Creates a [TextStyle] to handle CSS font-weight
   static TextStyle addFontWeight(TextStyle textStyle, String value) {
-    final List<String> _supportedNumValues = <String>[
+    final List<String> supportedNumValues = <String>[
       '100',
       '200',
       '300',
@@ -59,9 +59,9 @@ class StyleGenUtils {
       '800',
       '900',
     ];
-    if (_supportedNumValues.contains(value)) {
+    if (supportedNumValues.contains(value)) {
       return textStyle.copyWith(
-          fontWeight: FontWeight.values[_supportedNumValues.indexOf(value)]);
+          fontWeight: FontWeight.values[supportedNumValues.indexOf(value)]);
     }
 
     switch (value.toLowerCase()) {
