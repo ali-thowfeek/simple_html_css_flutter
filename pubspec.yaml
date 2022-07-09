@@ -3,6 +3,7 @@ description: This package allows you to use simple HTML and inline CSS styles to
 version: 4.0.0
 homepage: https://github.com/ali-thowfeek/simple_html_css_flutter
 repository: https://github.com/ali-thowfeek/simple_html_css_flutter
+
 environment:
   sdk: '>=2.17.0 <3.0.0'
   flutter: '>=2.0.0'
