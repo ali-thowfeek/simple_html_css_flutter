@@ -145,8 +145,27 @@ class Parser {
   /// Converts HTML content to a list of [TextSpan] objects
   List<TextSpan> parse() {
     List<TextSpan> spans = <TextSpan>[];
+    bool isBulletList = false;
+    bool isNumericList = false;
+    int numericListCounter = 1;
+
     for (final XmlEvent event in _events) {
       if (event is XmlStartElementEvent) {
+        // List tag formatting
+        if (event.name == 'ol') {
+          isNumericList = true;
+        } else if (event.name == 'ul') {
+          isBulletList = true;
+        } else if (event.name == 'li') {
+          if (isBulletList) {
+            spans.add(TextSpan(text: '• ', style: defaultTextStyle));
+          } else if (isNumericList) {
+            spans.add(TextSpan(
+                text: '$numericListCounter. ', style: defaultTextStyle));
+            numericListCounter++;
+          }
+        }
+
         if (!event.isSelfClosing) {
           String styles = '';
           final String tagName = event.name.toLowerCase();
@@ -330,6 +349,17 @@ class Parser {
         final TextSpan currentSpan = _handleText(event.text);
         if (currentSpan.text?.isNotEmpty == true) {
           spans.add(currentSpan);
+        }
+      }
+
+      // List tag formatting
+      if (event is XmlEndElementEvent) {
+        if (event.name == 'ol') {
+          isNumericList = false;
+          numericListCounter = 1;
+        }
+        if (event.name == 'ul') {
+          isBulletList = false;
         }
       }
     }
