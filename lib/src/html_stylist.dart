@@ -59,7 +59,8 @@ class HTML {
   static TextSpan toTextSpan(BuildContext context, String htmlContent,
       {Function(dynamic)? linksCallback,
       Map<String, TextStyle>? overrideStyle,
-      TextStyle? defaultTextStyle}) {
+      TextStyle? defaultTextStyle,
+      bool unescapeContent = true}) {
     // Validating empty content
     if (htmlContent.isEmpty) {
       return const TextSpan();
@@ -73,7 +74,11 @@ class HTML {
     // to fix a known issue with non self closing <br> tags
     content = content.replaceAll('<br>', '<br />');
 
-    final Parser parser = Parser(context, HtmlUnescape().convert(content),
+    if (unescapeContent) {
+      content = HtmlUnescape().convert(content);
+    }
+
+    final Parser parser = Parser(context, content,
         linksCallback: linksCallback,
         overrideStyleMap: overrideStyle ?? <String, TextStyle>{},
         defaultTextStyle: defaultTextStyle);
@@ -124,7 +129,8 @@ class HTML {
   static RichText toRichText(BuildContext context, String htmlContent,
       {Function(dynamic)? linksCallback,
       Map<String, TextStyle>? overrideStyle,
-      TextStyle? defaultTextStyle}) {
+      TextStyle? defaultTextStyle,
+      bool unescapeContent = true}) {
     return RichText(
       text: toTextSpan(
         context,
@@ -132,6 +138,7 @@ class HTML {
         linksCallback: linksCallback,
         overrideStyle: overrideStyle,
         defaultTextStyle: defaultTextStyle,
+        unescapeContent: unescapeContent,
       ),
     );
   }
