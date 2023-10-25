@@ -56,11 +56,12 @@ class HTML {
   /// );
   /// ```
 
-  static TextSpan toTextSpan(BuildContext context, String htmlContent,
-      {Function(dynamic)? linksCallback,
-      Map<String, TextStyle>? overrideStyle,
-      TextStyle? defaultTextStyle,
-      bool unescapeContent = true}) {
+  static TextSpan toTextSpan(BuildContext context, String htmlContent, {
+    Function(dynamic)? linksCallback,
+    Map<String, TextStyle>? overrideStyle,
+    TextStyle? defaultTextStyle,
+    bool unescapeContent = true,
+  }) {
     // Validating empty content
     if (htmlContent.isEmpty) {
       return const TextSpan();
@@ -126,11 +127,12 @@ class HTML {
   /// );
   /// ```
 
-  static RichText toRichText(BuildContext context, String htmlContent,
-      {Function(dynamic)? linksCallback,
-      Map<String, TextStyle>? overrideStyle,
-      TextStyle? defaultTextStyle,
-      bool unescapeContent = true}) {
+  static RichText toRichText(BuildContext context, String htmlContent, {
+    Function(dynamic)? linksCallback,
+    Map<String, TextStyle>? overrideStyle,
+    TextStyle? defaultTextStyle,
+    bool unescapeContent = true,
+  }) {
     return RichText(
       text: toTextSpan(
         context,
