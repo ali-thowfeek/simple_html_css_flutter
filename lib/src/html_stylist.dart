@@ -55,6 +55,16 @@ class HTML {
   ///   },
   /// );
   /// ```
+  ///
+  /// HTML content is unescaped by default before parsing to render escape
+  /// entities contained in the input. For example:
+  /// ```
+  /// <b>2 &times; 4 &#61; 8</b>
+  /// ```
+  ///
+  /// This may result in parsing errors if the input contains escaped angled
+  /// brackets (`&lt;`, `&gt;`). In such cases, automatic unescaping may be
+  /// disabled via the [unescapeContent] flag.
 
   static TextSpan toTextSpan(BuildContext context, String htmlContent, {
     Function(dynamic)? linksCallback,
@@ -126,6 +136,16 @@ class HTML {
   ///   },
   /// );
   /// ```
+  ///
+  /// HTML content is unescaped by default before parsing to render escape
+  /// entities contained in the input. For example:
+  /// ```
+  /// <b>2 &times; 4 &#61; 8</b>
+  /// ```
+  ///
+  /// This may result in parsing errors if the input contains escaped angled
+  /// brackets (`&lt;`, `&gt;`). In such cases, automatic unescaping may be
+  /// disabled via the [unescapeContent] flag.
 
   static RichText toRichText(BuildContext context, String htmlContent, {
     Function(dynamic)? linksCallback,
