@@ -1,3 +1,6 @@
+## 4.0.1
+* Allow bypassing HTML content unescaping
+
 ## 4.0.0
 * Breaking change, this package now needs a Flutter version >= 3
 * Update dependencies
