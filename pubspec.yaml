@@ -11,7 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  html_unescape: ^2.0.0
   xml: ^6.5.0
 
 dev_dependencies:

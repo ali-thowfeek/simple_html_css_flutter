@@ -16,7 +16,6 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:html_unescape/html_unescape.dart';
 
 import './internals.dart';
 
@@ -55,22 +54,11 @@ class HTML {
   ///   },
   /// );
   /// ```
-  ///
-  /// HTML content is unescaped by default before parsing to render escape
-  /// entities contained in the input. For example:
-  /// ```
-  /// <b>2 &times; 4 &#61; 8</b>
-  /// ```
-  ///
-  /// This may result in parsing errors if the input contains escaped angled
-  /// brackets (`&lt;`, `&gt;`). In such cases, automatic unescaping may be
-  /// disabled via the [unescapeContent] flag.
 
   static TextSpan toTextSpan(BuildContext context, String htmlContent, {
     Function(dynamic)? linksCallback,
     Map<String, TextStyle>? overrideStyle,
     TextStyle? defaultTextStyle,
-    bool unescapeContent = true,
   }) {
     // Validating empty content
     if (htmlContent.isEmpty) {
@@ -84,10 +72,6 @@ class HTML {
 
     // to fix a known issue with non self closing <br> tags
     content = content.replaceAll('<br>', '<br />');
-
-    if (unescapeContent) {
-      content = HtmlUnescape().convert(content);
-    }
 
     final Parser parser = Parser(context, content,
         linksCallback: linksCallback,
@@ -136,22 +120,11 @@ class HTML {
   ///   },
   /// );
   /// ```
-  ///
-  /// HTML content is unescaped by default before parsing to render escape
-  /// entities contained in the input. For example:
-  /// ```
-  /// <b>2 &times; 4 &#61; 8</b>
-  /// ```
-  ///
-  /// This may result in parsing errors if the input contains escaped angled
-  /// brackets (`&lt;`, `&gt;`). In such cases, automatic unescaping may be
-  /// disabled via the [unescapeContent] flag.
 
   static RichText toRichText(BuildContext context, String htmlContent, {
     Function(dynamic)? linksCallback,
     Map<String, TextStyle>? overrideStyle,
     TextStyle? defaultTextStyle,
-    bool unescapeContent = true,
   }) {
     return RichText(
       text: toTextSpan(
@@ -160,7 +133,6 @@ class HTML {
         linksCallback: linksCallback,
         overrideStyle: overrideStyle,
         defaultTextStyle: defaultTextStyle,
-        unescapeContent: unescapeContent,
       ),
     );
   }
