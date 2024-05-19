@@ -51,7 +51,8 @@ class Parser {
   final TextStyle? defaultTextStyle;
 
   TextSpan _getTextSpan(String text, String style, TextStyle overrideStyle) {
-    final Iterable<String> rules = style.split(';').where((String item) => item.trim().isNotEmpty);
+    final Iterable<String> rules =
+        style.split(';').where((String item) => item.trim().isNotEmpty);
     TextStyle textStyle = DefaultTextStyle.of(context).style;
     textStyle = textStyle.apply(color: const Color(0xff000000));
     textStyle = textStyle.merge(defaultTextStyle);
@@ -160,7 +161,8 @@ class Parser {
             case 'h1':
               double h1;
               if (defaultFontSize == null) {
-                h1 = Theme.of(context).textTheme.headlineLarge?.fontSize ?? 24.0;
+                h1 =
+                    Theme.of(context).textTheme.headlineSmall?.fontSize ?? 24.0;
               } else {
                 h1 = defaultFontSize * 2;
               }
@@ -170,7 +172,7 @@ class Parser {
             case 'h2':
               double h2;
               if (defaultFontSize == null) {
-                h2 = Theme.of(context).textTheme.headlineLarge?.fontSize ?? 20.0;
+                h2 = Theme.of(context).textTheme.titleLarge?.fontSize ?? 20.0;
               } else {
                 h2 = defaultFontSize * 1.5;
               }
@@ -180,7 +182,7 @@ class Parser {
             case 'h3':
               double h3;
               if (defaultFontSize == null) {
-                h3 = Theme.of(context).textTheme.headlineMedium?.fontSize ?? 16.0;
+                h3 = Theme.of(context).textTheme.bodyLarge?.fontSize ?? 16.0;
               } else {
                 h3 = defaultFontSize * 1.17;
               }
@@ -190,7 +192,7 @@ class Parser {
             case 'h4':
               double h4;
               if (defaultFontSize == null) {
-                h4 = Theme.of(context).textTheme.headlineMedium?.fontSize ?? 16.0;
+                h4 = Theme.of(context).textTheme.bodyLarge?.fontSize ?? 16.0;
               } else {
                 h4 = defaultFontSize;
               }
@@ -200,7 +202,7 @@ class Parser {
             case 'h5':
               double h5;
               if (defaultFontSize == null) {
-                h5 = Theme.of(context).textTheme.headlineMedium?.fontSize ?? 16.0;
+                h5 = Theme.of(context).textTheme.bodyLarge?.fontSize ?? 16.0;
               } else {
                 h5 = defaultFontSize * .83;
               }
@@ -210,7 +212,7 @@ class Parser {
             case 'h6':
               double h6;
               if (defaultFontSize == null) {
-                h6 = Theme.of(context).textTheme.headlineSmall?.fontSize ?? 14.0;
+                h6 = Theme.of(context).textTheme.bodyMedium?.fontSize ?? 14.0;
               } else {
                 h6 = defaultFontSize * .67;
               }
@@ -250,7 +252,8 @@ class Parser {
               break;
 
             case 'a':
-              styles = '''visit_link:__#TO_GET#__; text-decoration: underline; color: #4287f5;''';
+              styles =
+                  '''visit_link:__#TO_GET#__; text-decoration: underline; color: #4287f5;''';
               break;
 
 // dropping partial support for ul-li bullets
@@ -283,7 +286,8 @@ class Parser {
             if (attribute.name == 'style') {
               styles = '$styles;${attribute.value}';
             } else if (attribute.name == 'href') {
-              styles = styles.replaceFirst('__#TO_GET#__', attribute.value.replaceAll(':', '__#COLON#__'));
+              styles = styles.replaceFirst('__#TO_GET#__',
+                  attribute.value.replaceAll(':', '__#COLON#__'));
             }
           }
           _stack.add(_Tag(event.name, styles, overrideStyles));
@@ -335,7 +339,8 @@ class Parser {
     if (spans.isNotEmpty) {
       final List<TextSpan> reversed = spans.reversed.toList();
 
-      while (reversed.isNotEmpty && (reversed.first.text == '\n\n' || reversed.first.text == '\n')) {
+      while (reversed.isNotEmpty &&
+          (reversed.first.text == '\n\n' || reversed.first.text == '\n')) {
         reversed.removeAt(0);
       }
 
