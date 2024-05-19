@@ -328,7 +328,7 @@ class Parser {
       }
 
       if (event is XmlTextEvent) {
-        final TextSpan currentSpan = _handleText(event.text);
+        final TextSpan currentSpan = _handleText(event.value);
         if (currentSpan.text?.isNotEmpty == true) {
           spans.add(currentSpan);
         }
