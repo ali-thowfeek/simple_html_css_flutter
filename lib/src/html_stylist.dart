@@ -55,7 +55,9 @@ class HTML {
   /// );
   /// ```
 
-  static TextSpan toTextSpan(BuildContext context, String htmlContent, {
+  static TextSpan toTextSpan(
+    BuildContext context,
+    String htmlContent, {
     Function(dynamic)? linksCallback,
     Map<String, TextStyle>? overrideStyle,
     TextStyle? defaultTextStyle,
@@ -121,7 +123,9 @@ class HTML {
   /// );
   /// ```
 
-  static RichText toRichText(BuildContext context, String htmlContent, {
+  static RichText toRichText(
+    BuildContext context,
+    String htmlContent, {
     Function(dynamic)? linksCallback,
     Map<String, TextStyle>? overrideStyle,
     TextStyle? defaultTextStyle,
