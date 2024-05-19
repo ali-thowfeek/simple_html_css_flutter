@@ -1,6 +1,6 @@
 name: simple_html_css
 description: This package allows you to use simple HTML and inline CSS styles to style your text in flutter. A fork of css_text package.
-version: 4.0.0
+version: 4.0.1
 homepage: https://github.com/ali-thowfeek/simple_html_css_flutter
 repository: https://github.com/ali-thowfeek/simple_html_css_flutter
 
